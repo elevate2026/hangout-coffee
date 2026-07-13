@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Gallery｜Hangout coffee 松本</title>
+  <meta name="description" content="コーヒー、食事、店内の空気。Hangout coffeeの日常を写真でご覧ください。">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="alternate" hreflang="ja" href="Gallery.dc.html?lang=ja">
+  <link rel="alternate" hreflang="en" href="Gallery.dc.html?lang=en">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&amp;family=Manrope:wght@400..800&amp;family=Noto+Sans+JP:wght@400..700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #F3EFE7; color: #242827; overflow-x: clip; }
+    body { font-family: Manrope, 'Noto Sans JP', sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a { color: #17363A; }
+    a:hover { color: #76573E; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #C2A058; outline-offset: 3px; }
+    ::selection { background: #C2A058; color: #17363A; }
+    @keyframes hangLb { from { opacity: 0; } to { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+  </style>
+</helmet>
+<div style="background:#F3EFE7; color:#242827; overflow-x:clip">
+  <dc-import name="SiteHeader" current="gallery" lang="{{lang}}" on-lang="{{setLang}}" hint-size="100%,104px"></dc-import>
+  <main id="main">
+
+    <section data-screen-label="Gallery / Hero" style="padding:clamp(56px,7vw,96px) clamp(20px,4.5vw,60px) clamp(32px,4vw,48px)">
+      <div style="max-width:1280px; margin:0 auto">
+        <p data-hs="0" style="display:inline-flex; align-items:center; gap:12px; margin:0; font-size:11.5px; font-weight:800; letter-spacing:.32em; color:#76573E"><span aria-hidden="true" style="width:7px; height:7px; border-radius:50%; background:#C2A058; display:inline-block"></span>GALLERY</p>
+        <h1 data-hs="1" lang="en" style="margin:clamp(14px,2vw,24px) 0 0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(56px,9vw,118px); line-height:.96; letter-spacing:-.01em; color:#1E2322">A LOOK<br>INSIDE</h1>
+        <p data-hs="2" lang="en" style="margin:clamp(14px,1.8vw,20px) 0 0; font-family:Fraunces,serif; font-style:italic; font-size:clamp(17px,1.9vw,22px); color:#76573E">Coffee, food and everyday moments.</p>
+        <p data-hs="3" style="margin:12px 0 0; max-width:52ch">
+          <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:14.5px; line-height:2.1; color:#4C504E">コーヒー、食事、店内の空気。Hangout coffeeの日常をご覧ください。</span></sc-if>
+          <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:15px; line-height:1.9; color:#4C504E">A look at the everyday at Hangout coffee.</span></sc-if>
+        </p>
+      </div>
+    </section>
+
+    <section data-screen-label="Gallery / Grid" style="padding:0 clamp(20px,4.5vw,60px) clamp(84px,9.5vw,140px)">
+      <div style="max-width:1280px; margin:0 auto">
+        <div data-hs="4" style="display:flex; flex-wrap:wrap; gap:10px; border-top:1px solid #E3DCCC; padding-top:22px; margin-bottom:clamp(26px,3.2vw,40px)" role="group" aria-label="Filter photos by category">
+          <sc-for list="{{cats}}" as="c" hint-placeholder-count="6">
+            <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="cursor:pointer; border-radius:999px; border:1px solid {{c.bc}}; background:{{c.bg}}; color:{{c.col}}; padding:11px 22px; font-family:Manrope,sans-serif; font-size:12px; font-weight:800; letter-spacing:.14em; transition:background .25s ease, color .25s ease, border-color .25s ease">{{c.label}}</button>
+          </sc-for>
+        </div>
+        <div style="columns:{{cols}}; column-gap:clamp(14px,1.8vw,22px)">
+          <sc-for list="{{items}}" as="g" hint-placeholder-count="6">
+            <figure style="break-inside:avoid; margin:0 0 clamp(14px,1.8vw,22px); display:{{g.showPhoto}}">
+              <button onClick="{{g.open}}" aria-label="{{g.openAria}}" style="display:block; width:100%; padding:0; border:none; background:none; cursor:zoom-in; border-radius:18px; overflow:hidden">
+                <img src="{{g.src}}" srcset="{{g.srcset}}" sizes="(max-width: 700px) 46vw, 30vw" alt="{{g.alt}}" width="{{g.w}}" height="{{g.h}}" loading="lazy" decoding="async" style="width:100%; aspect-ratio:{{g.ar}}; object-fit:cover; display:block; transition:transform .5s ease" style-hover="transform:scale(1.035)">
+              </button>
+              <figcaption style="margin-top:9px; font-family:'Noto Sans JP',Manrope,sans-serif; font-size:12px; letter-spacing:.05em; color:#8A8375">{{g.cap}}</figcaption>
+            </figure>
+            <figure style="break-inside:avoid; margin:0 0 clamp(14px,1.8vw,22px); display:{{g.showPh}}">
+              <div style="width:100%; aspect-ratio:{{g.ar}}; border-radius:18px; border:1px solid #DED7C6; background:repeating-linear-gradient(45deg, #ECE7DB 0 10px, #F4F0E8 10px 20px); display:flex; align-items:center; justify-content:center; padding:18px; box-sizing:border-box">
+                <span style="font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace; font-size:11px; letter-spacing:.14em; color:#8A8375; text-transform:uppercase; text-align:center">{{g.phLabel}}</span>
+              </div>
+              <figcaption style="margin-top:9px; font-family:'Noto Sans JP',Manrope,sans-serif; font-size:12px; letter-spacing:.05em; color:#8A8375">{{g.cap}}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+        <div data-rv style="margin-top:clamp(36px,4.5vw,56px); text-align:center; border-top:1px solid #E3DCCC; padding-top:clamp(32px,4vw,48px)">
+          <p style="margin:0">
+            <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:14px; line-height:2; color:#4C504E">日々の様子はInstagramでも更新しています。</span></sc-if>
+            <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:14.5px; line-height:1.9; color:#4C504E">More everyday moments over on Instagram.</span></sc-if>
+          </p>
+          <a href="{{igUrl}}" target="_blank" rel="noopener noreferrer" aria-label="{{igAria}}" style="display:inline-flex; align-items:center; gap:12px; margin-top:18px; background:transparent; color:#242827; border:1px solid #A79F8D; border-radius:999px; padding:15px 30px; font-family:Manrope,sans-serif; font-size:12.5px; font-weight:800; letter-spacing:.15em; text-decoration:none; transition:border-color .25s ease, background .25s ease" style-hover="border-color:#242827; background:rgba(36,40,39,.05); color:#242827">FOLLOW @HANGOUT_COFFEE_<span aria-hidden="true" style="font-size:11px">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <dc-import name="SiteFooter" lang="{{lang}}" hint-size="100%,620px"></dc-import>
+  <sc-if value="{{lbOpen}}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="true" aria-label="{{lbAria}}" onClick="{{lbClose}}" onTouchStart="{{lbTs}}" onTouchEnd="{{lbTe}}" style="position:fixed; inset:0; z-index:520; background:rgba(17,26,28,.93); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:clamp(16px,3vw,40px); box-sizing:border-box; animation:hangLb .3s ease both">
+      <button onClick="{{lbClose}}" aria-label="{{lbCloseAria}}" style="position:absolute; top:18px; right:18px; width:48px; height:48px; border-radius:999px; border:1px solid rgba(243,239,231,.4); background:rgba(17,26,28,.5); color:#F3EFE7; font-size:22px; line-height:1; cursor:pointer; z-index:2">×</button>
+      <button onClick="{{lbPrev}}" aria-label="{{lbPrevAria}}" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); width:50px; height:50px; border-radius:999px; border:1px solid rgba(243,239,231,.4); background:rgba(17,26,28,.5); color:#F3EFE7; font-size:22px; line-height:1; cursor:pointer; z-index:2">‹</button>
+      <button onClick="{{lbNext}}" aria-label="{{lbNextAria}}" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); width:50px; height:50px; border-radius:999px; border:1px solid rgba(243,239,231,.4); background:rgba(17,26,28,.5); color:#F3EFE7; font-size:22px; line-height:1; cursor:pointer; z-index:2">›</button>
+      <img onClick="{{lbStop}}" src="{{lbSrc}}" alt="{{lbAlt}}" style="max-width:min(92vw,1100px); max-height:76vh; object-fit:contain; border-radius:12px; display:block">
+      <div onClick="{{lbStop}}" style="margin-top:16px; display:flex; align-items:baseline; gap:16px; color:#F3EFE7">
+        <span style="font-family:Manrope,sans-serif; font-size:12px; font-weight:700; letter-spacing:.16em; color:rgba(243,239,231,.6)">{{lbNum}}</span>
+        <span style="font-family:'Noto Sans JP',Manrope,sans-serif; font-size:13.5px; letter-spacing:.04em">{{lbCap}}</span>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    lang: (function () { try { return localStorage.getItem('hangout_lang') || 'ja'; } catch (e) { return 'ja'; } })(),
+    db: null,
+    cat: 'ALL',
+    lb: null,
+    cols: 3,
+  };
+
+  componentDidMount() {
+    var self = this;
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'ja' || q === 'en') { this.setLang(q); }
+    } catch (e) {}
+    import('./store.js').then(function (m) { self.setState({ db: m }); self._applyLang(self.state.lang, m); });
+    import('./fx.js').then(function (m) { self._fxOff = m.initFX(); });
+    this._applyLang(this.state.lang, null);
+    this._mq = window.matchMedia('(max-width: 700px)');
+    this._updMq = function () { self.setState({ cols: self._mq.matches ? 2 : 3 }); };
+    this._updMq();
+    if (this._mq.addEventListener) { this._mq.addEventListener('change', this._updMq); } else { this._mq.addListener(this._updMq); }
+    this._onKey = function (e) {
+      if (self.state.lb === null) return;
+      if (e.key === 'Escape') self._close();
+      if (e.key === 'ArrowLeft') self._step(-1);
+      if (e.key === 'ArrowRight') self._step(1);
+    };
+    window.addEventListener('keydown', this._onKey);
+  }
+
+  componentWillUnmount() {
+    if (this._fxOff) this._fxOff();
+    window.removeEventListener('keydown', this._onKey);
+    if (this._mq) {
+      if (this._mq.removeEventListener) { this._mq.removeEventListener('change', this._updMq); } else { this._mq.removeListener(this._updMq); }
+    }
+    document.body.style.overflow = '';
+  }
+
+  _photos() {
+    var self = this;
+    var db = this.state.db;
+    if (!db) return [];
+    return db.gallery.filter(function (g) {
+      return !g.ph && (self.state.cat === 'ALL' || g.cat === self.state.cat);
+    });
+  }
+
+  _open(i) { this.setState({ lb: i }); document.body.style.overflow = 'hidden'; }
+  _close() { this.setState({ lb: null }); document.body.style.overflow = ''; }
+  _step(d) {
+    var n = this._photos().length;
+    if (!n) return;
+    this.setState(function (s) { return { lb: ((s.lb + d) % n + n) % n }; });
+  }
+
+  _applyLang(l, dbMaybe) {
+    var db = dbMaybe || this.state.db;
+    try { document.documentElement.lang = l; } catch (e) {}
+    if (!db || !db.seo) return;
+    var apply = function () {
+      try {
+        document.title = l === 'ja' ? db.seo.gallery.tJa : db.seo.gallery.tEn;
+        var md = document.querySelector('meta[name="description"]');
+        if (md) md.setAttribute('content', l === 'ja' ? db.seo.gallery.dJa : db.seo.gallery.dEn);
+      } catch (e) {}
+    };
+    apply();
+    setTimeout(apply, 200);
+    setTimeout(apply, 700);
+  }
+
+  setLang = (l) => {
+    try { localStorage.setItem('hangout_lang', l); } catch (e) {}
+    this.setState({ lang: l });
+    this._applyLang(l, null);
+    try {
+      var u = new URL(location.href);
+      u.searchParams.set('lang', l);
+      history.replaceState(null, '', u);
+    } catch (e) {}
+  };
+
+  renderVals() {
+    var self = this;
+    var ja = this.state.lang === 'ja';
+    var db = this.state.db;
+    var s = db ? db.site : null;
+    var I = db ? db.IMG : null;
+    var cat = this.state.cat;
+    var catNames = db ? db.galleryCats : ['ALL', 'SPACE', 'COFFEE', 'FOOD', 'BEER', 'VISIT'];
+    var cats = catNames.map(function (name) {
+      var on = cat === name;
+      return {
+        label: name,
+        bg: on ? '#17363A' : 'transparent',
+        col: on ? '#F3EFE7' : '#4C504E',
+        bc: on ? '#17363A' : '#C9C1AE',
+        pressed: on ? 'true' : 'false',
+        pick: function () { self.setState({ cat: name, lb: null }); document.body.style.overflow = ''; },
+      };
+    });
+    var filtered = db ? db.gallery.filter(function (g) { return cat === 'ALL' || g.cat === cat; }) : [];
+    var photoIdx = -1;
+    var items = filtered.map(function (g) {
+      var isPh = !!g.ph;
+      var idx = isPh ? -1 : ++photoIdx;
+      var im = isPh ? null : I[g.img];
+      var cap = ja ? g.capJa : g.capEn;
+      return {
+        showPhoto: isPh ? 'none' : 'block',
+        showPh: isPh ? 'block' : 'none',
+        src: im ? im.src : '',
+        srcset: im ? im.srcset : '',
+        w: im ? im.w : 800, h: im ? im.h : 800,
+        alt: im ? (ja ? im.altJa : im.altEn) : '',
+        ar: g.ar,
+        cap: cap,
+        phLabel: g.ph || '',
+        open: isPh ? function () {} : function () { self._open(idx); },
+        openAria: (ja ? '拡大表示: ' : 'View larger: ') + cap,
+      };
+    });
+    var photos = this._photos();
+    var cur = this.state.lb !== null && photos[this.state.lb] ? photos[this.state.lb] : null;
+    var curIm = cur ? I[cur.img] : null;
+    var lastX = { v: 0 };
+    return {
+      lang: this.state.lang, ja: ja, en: !ja, setLang: this.setLang,
+      cats: cats,
+      items: items,
+      cols: this.state.cols,
+      igUrl: s ? s.instagramUrl : 'https://www.instagram.com/hangout_coffee_/',
+      igAria: ja ? 'Instagram（新しいタブで開きます）' : 'Instagram (opens in a new tab)',
+      lbOpen: this.state.lb !== null && !!cur,
+      lbSrc: curIm ? curIm.src : '',
+      lbAlt: curIm ? (ja ? curIm.altJa : curIm.altEn) : '',
+      lbCap: cur ? (ja ? cur.capJa : cur.capEn) : '',
+      lbNum: cur ? (this.state.lb + 1) + ' / ' + photos.length : '',
+      lbClose: function () { self._close(); },
+      lbPrev: function (e) { if (e && e.stopPropagation) e.stopPropagation(); self._step(-1); },
+      lbNext: function (e) { if (e && e.stopPropagation) e.stopPropagation(); self._step(1); },
+      lbStop: function (e) { if (e && e.stopPropagation) e.stopPropagation(); },
+      lbTs: function (e) { if (e.touches && e.touches[0]) self._tsX = e.touches[0].clientX; },
+      lbTe: function (e) {
+        if (self._tsX === undefined || !e.changedTouches || !e.changedTouches[0]) return;
+        var dx = e.changedTouches[0].clientX - self._tsX;
+        self._tsX = undefined;
+        if (dx > 44) self._step(-1);
+        else if (dx < -44) self._step(1);
+      },
+      lbAria: ja ? '写真の拡大表示' : 'Photo viewer',
+      lbCloseAria: ja ? '閉じる' : 'Close',
+      lbPrevAria: ja ? '前の写真' : 'Previous photo',
+      lbNextAria: ja ? '次の写真' : 'Next photo',
+    };
+  }
+}
+</script>
+</body>
+</html>

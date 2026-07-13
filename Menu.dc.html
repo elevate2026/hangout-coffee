@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Menu｜Hangout coffee 松本のモーニング・ランチ</title>
+  <meta name="description" content="モーニング9:00–11:30 L.O.、ランチ11:30–16:30 L.O.。エッグベネディクト、フレンチトースト、サンドイッチ、ドリンク。">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="alternate" hreflang="ja" href="Menu.dc.html?lang=ja">
+  <link rel="alternate" hreflang="en" href="Menu.dc.html?lang=en">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&amp;family=Manrope:wght@400..800&amp;family=Noto+Sans+JP:wght@400..700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #F3EFE7; color: #242827; overflow-x: clip; }
+    body { font-family: Manrope, 'Noto Sans JP', sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a { color: #17363A; }
+    a:hover { color: #76573E; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #C2A058; outline-offset: 3px; }
+    ::selection { background: #C2A058; color: #17363A; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+    @media (max-width: 600px) {
+      .menu-time-nav { flex-wrap: wrap; overflow-x: visible !important; }
+      .menu-time-button { flex: 1 1 calc(50% - 5px) !important; min-width: 0; padding: 10px 12px !important; }
+    }
+  </style>
+</helmet>
+<div style="background:#F3EFE7; color:#242827; overflow-x:clip">
+  <dc-import name="SiteHeader" current="menu" lang="{{lang}}" on-lang="{{setLang}}" hint-size="100%,104px"></dc-import>
+  <main id="main">
+
+    <section data-screen-label="Menu / Hero" style="background:#17363A; color:#F3EFE7; overflow:hidden; padding:clamp(56px,7vw,96px) clamp(20px,4.5vw,60px)">
+      <div style="max-width:1360px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(400px,100%), 1fr)); gap:clamp(40px,5vw,80px); align-items:center">
+        <div>
+          <p data-hs="0" style="display:inline-flex; align-items:center; gap:12px; margin:0; font-size:11.5px; font-weight:800; letter-spacing:.32em; color:#C2A058"><span aria-hidden="true" style="width:7px; height:7px; border-radius:50%; background:#C2A058; display:inline-block"></span>MENU</p>
+          <h1 data-hs="1" lang="en" style="margin:clamp(14px,2vw,24px) 0 0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(56px,8.5vw,116px); line-height:.96; letter-spacing:-.01em; color:#F6F2EA">OUR<br>MENU</h1>
+          <p data-hs="2" lang="en" style="margin:clamp(16px,2vw,24px) 0 0; font-family:Fraunces,serif; font-style:italic; font-weight:400; font-size:clamp(18px,1.9vw,23px); color:#C2A058">Good food for every part of the day.</p>
+          <p data-hs="3" style="margin:clamp(16px,2vw,22px) 0 0; max-width:44ch">
+            <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:15px; line-height:2.15; color:rgba(243,239,231,.82)">朝はモーニング、昼はランチ。<br>コーヒーに合う食事を、時間に合わせて。</span></sc-if>
+            <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:15.5px; line-height:1.9; color:rgba(243,239,231,.82)">Breakfast in the morning, lunch after 11:30 —<br>plates made to go with good coffee.</span></sc-if>
+          </p>
+        </div>
+        <div data-hs="4" style="position:relative">
+          <svg aria-hidden="true" width="210" height="210" viewBox="0 0 210 210" style="position:absolute; right:-40px; top:-40px"><circle cx="105" cy="105" r="103" fill="none" stroke="rgba(243,239,231,.3)" stroke-width="1.3"></circle></svg>
+          <img src="assets/img08-bread.webp" srcset="assets/img08-bread-800.webp 800w, assets/img08-bread.webp 1440w" sizes="(max-width: 900px) 94vw, 42vw" alt="{{aBread}}" width="1440" height="1440" fetchpriority="high" decoding="async" style="position:relative; z-index:1; width:100%; max-height:520px; aspect-ratio:4/3.2; object-fit:cover; border-radius:24px; transform:rotate(1.2deg); display:block">
+        </div>
+      </div>
+    </section>
+
+    <div data-screen-label="Menu / Time navigation" style="position:sticky; top:78px; z-index:90; background:#F3EFE7; border-bottom:1px solid #E3DCCC">
+      <nav class="menu-time-nav" aria-label="Menu sections" style="max-width:1360px; margin:0 auto; display:flex; gap:10px; padding:14px clamp(20px,4.5vw,60px); overflow-x:auto; scrollbar-width:none">
+        <button class="menu-time-button" onClick="{{goMorning}}" aria-current="{{curM}}" style="flex-shrink:0; cursor:pointer; border-radius:16px; border:1px solid {{bcM}}; background:{{bgM}}; color:{{cM}}; padding:10px 20px; text-align:left; transition:background .25s ease, color .25s ease, border-color .25s ease">
+          <span style="display:block; font-family:Manrope,sans-serif; font-size:12px; font-weight:800; letter-spacing:.16em">MORNING</span>
+          <span style="display:block; margin-top:2px; font-family:Manrope,sans-serif; font-size:11px; font-weight:600; letter-spacing:.06em; opacity:.75">{{morning}}</span>
+        </button>
+        <button class="menu-time-button" onClick="{{goLunch}}" aria-current="{{curL}}" style="flex-shrink:0; cursor:pointer; border-radius:16px; border:1px solid {{bcL}}; background:{{bgL}}; color:{{cL}}; padding:10px 20px; text-align:left; transition:background .25s ease, color .25s ease, border-color .25s ease">
+          <span style="display:block; font-family:Manrope,sans-serif; font-size:12px; font-weight:800; letter-spacing:.16em">LUNCH</span>
+          <span style="display:block; margin-top:2px; font-family:Manrope,sans-serif; font-size:11px; font-weight:600; letter-spacing:.06em; opacity:.75">{{lunch}}</span>
+        </button>
+        <button class="menu-time-button" onClick="{{goDrinks}}" aria-current="{{curD}}" style="flex-shrink:0; cursor:pointer; border-radius:16px; border:1px solid {{bcD}}; background:{{bgD}}; color:{{cD}}; padding:10px 20px; text-align:left; transition:background .25s ease, color .25s ease, border-color .25s ease">
+          <span style="display:block; font-family:Manrope,sans-serif; font-size:12px; font-weight:800; letter-spacing:.16em">DRINKS</span>
+          <span style="display:block; margin-top:2px; font-family:Manrope,sans-serif; font-size:11px; font-weight:600; letter-spacing:.06em; opacity:.75">ALL DAY</span>
+        </button>
+        <button class="menu-time-button" onClick="{{goSweets}}" aria-current="{{curS}}" style="flex-shrink:0; cursor:pointer; border-radius:16px; border:1px solid {{bcS}}; background:{{bgS}}; color:{{cS}}; padding:10px 20px; text-align:left; transition:background .25s ease, color .25s ease, border-color .25s ease">
+          <span style="display:block; font-family:Manrope,sans-serif; font-size:12px; font-weight:800; letter-spacing:.16em">SWEETS</span>
+          <span style="display:block; margin-top:2px; font-family:Manrope,sans-serif; font-size:11px; font-weight:600; letter-spacing:.06em; opacity:.75">SEASONAL</span>
+        </button>
+      </nav>
+    </div>
+
+    <section id="morning" data-screen-label="Menu / Morning" style="padding:clamp(76px,8.5vw,120px) clamp(20px,4.5vw,60px); overflow:hidden">
+      <div style="max-width:1360px; margin:0 auto">
+        <div data-rv style="display:flex; flex-wrap:wrap; align-items:baseline; gap:12px 26px">
+          <h2 lang="en" style="margin:0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(40px,5vw,68px); line-height:1; color:#1E2322">MORNING</h2>
+          <p lang="en" style="margin:0; font-family:Fraunces,serif; font-style:italic; font-size:clamp(17px,1.8vw,21px); color:#76573E">{{morning}}</p>
+        </div>
+        <p data-rv style="margin:18px 0 0; max-width:46ch">
+          <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:15px; line-height:2.15; color:#4C504E">コーヒーと一緒に楽しむ、Hangout coffeeの朝食。</span></sc-if>
+          <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:15.5px; line-height:1.9; color:#4C504E">Breakfast at Hangout coffee, made for your morning cup.</span></sc-if>
+        </p>
+        <div style="margin-top:clamp(32px,4vw,52px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(400px,100%), 1fr)); gap:clamp(36px,4.5vw,72px); align-items:start">
+          <div data-rv style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(12px,1.6vw,20px)">
+            <img src="assets/img06-benedict.webp" srcset="assets/img06-benedict-800.webp 800w, assets/img06-benedict.webp 1440w" sizes="(max-width: 900px) 46vw, 22vw" alt="{{aBenedict}}" width="1440" height="1440" loading="lazy" decoding="async" style="width:100%; aspect-ratio:3/3.6; object-fit:cover; border-radius:18px; display:block">
+            <img src="assets/img05-frenchtoast.webp" srcset="assets/img05-frenchtoast-800.webp 800w, assets/img05-frenchtoast.webp 1250w" sizes="(max-width: 900px) 46vw, 22vw" alt="{{aFrench}}" width="1250" height="1562" loading="lazy" decoding="async" style="width:100%; aspect-ratio:3/3.6; object-fit:cover; border-radius:18px; margin-top:26px; display:block">
+          </div>
+          <div data-rv data-rvd="120" style="display:flex; flex-direction:column">
+            <sc-for list="{{morningItems}}" as="it" hint-placeholder-count="3">
+              <div style="padding:20px 2px; border-bottom:1px dashed #CFC7B4">
+                <div style="display:flex; align-items:baseline; gap:14px">
+                  <h3 style="margin:0; font-family:'Noto Sans JP',Manrope,sans-serif; font-weight:600; font-size:17px; letter-spacing:.02em; color:{{it.nameC}}">{{it.name}}</h3>
+                  <span style="flex:1; border-bottom:1px dotted #C4BCA8; transform:translateY(-4px)"></span>
+                  <span style="font-family:Manrope,sans-serif; font-weight:700; font-size:14.5px; color:#5A5E5B">{{it.price}}</span>
+                </div>
+                <p style="margin:6px 0 0; font-family:'Noto Sans JP',sans-serif; font-size:13px; line-height:1.9; color:#8A8375">{{it.sub}}</p>
+                <p style="margin:4px 0 0; font-family:'Noto Sans JP',sans-serif; font-size:13.5px; line-height:1.9; color:#5A5E5B">{{it.desc}}</p>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lunch" data-screen-label="Menu / Lunch" style="background:#EDE8DC; padding:clamp(76px,8.5vw,120px) clamp(20px,4.5vw,60px); overflow:hidden">
+      <div style="max-width:1360px; margin:0 auto">
+        <div data-rv style="display:flex; flex-wrap:wrap; align-items:baseline; gap:12px 26px">
+          <h2 lang="en" style="margin:0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(40px,5vw,68px); line-height:1; color:#1E2322">LUNCH</h2>
+          <p lang="en" style="margin:0; font-family:Fraunces,serif; font-style:italic; font-size:clamp(17px,1.8vw,21px); color:#76573E">{{lunch}}</p>
+        </div>
+        <p data-rv style="margin:18px 0 0; max-width:46ch">
+          <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:15px; line-height:2.15; color:#4C504E">サンドイッチや食事とともに、ゆっくり過ごすランチタイム。</span></sc-if>
+          <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:15.5px; line-height:1.9; color:#4C504E">Sandwiches and plates for a slow, easy lunchtime.</span></sc-if>
+        </p>
+        <div style="margin-top:clamp(32px,4vw,52px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(400px,100%), 1fr)); gap:clamp(36px,4.5vw,72px); align-items:start">
+          <div data-rv data-rvd="120" style="display:flex; flex-direction:column; order:1">
+            <sc-for list="{{lunchItems}}" as="it" hint-placeholder-count="2">
+              <div style="padding:20px 2px; border-bottom:1px dashed #C4BB9F">
+                <div style="display:flex; align-items:baseline; gap:14px">
+                  <h3 style="margin:0; font-family:'Noto Sans JP',Manrope,sans-serif; font-weight:600; font-size:17px; letter-spacing:.02em; color:{{it.nameC}}">{{it.name}}</h3>
+                  <span style="flex:1; border-bottom:1px dotted #B8AF95; transform:translateY(-4px)"></span>
+                  <span style="font-family:Manrope,sans-serif; font-weight:700; font-size:14.5px; color:#5A5E5B">{{it.price}}</span>
+                </div>
+                <p style="margin:6px 0 0; font-family:'Noto Sans JP',sans-serif; font-size:13px; line-height:1.9; color:#8A8375">{{it.sub}}</p>
+                <p style="margin:4px 0 0; font-family:'Noto Sans JP',sans-serif; font-size:13.5px; line-height:1.9; color:#5A5E5B">{{it.desc}}</p>
+              </div>
+            </sc-for>
+          </div>
+          <div data-rv style="position:relative; order:2">
+            <svg aria-hidden="true" width="180" height="180" viewBox="0 0 180 180" style="position:absolute; left:-36px; bottom:-36px"><circle cx="90" cy="90" r="88" fill="none" stroke="#C2A058" stroke-width="1.3"></circle></svg>
+            <img src="assets/img07-sandwich.webp" srcset="assets/img07-sandwich-800.webp 800w, assets/img07-sandwich.webp 1440w" sizes="(max-width: 900px) 94vw, 42vw" alt="{{aSandwich}}" width="1440" height="1440" loading="lazy" decoding="async" style="position:relative; z-index:1; width:100%; aspect-ratio:4/3.4; object-fit:cover; border-radius:22px; transform:rotate(-1.2deg); display:block">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="drinks" data-screen-label="Menu / Drinks" style="padding:clamp(76px,8.5vw,120px) clamp(20px,4.5vw,60px)">
+      <div style="max-width:1360px; margin:0 auto">
+        <div data-rv style="display:flex; flex-wrap:wrap; align-items:baseline; gap:12px 26px">
+          <h2 lang="en" style="margin:0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(40px,5vw,68px); line-height:1; color:#1E2322">DRINKS</h2>
+          <p lang="en" style="margin:0; font-family:Fraunces,serif; font-style:italic; font-size:clamp(17px,1.8vw,21px); color:#76573E">9:00–17:00</p>
+        </div>
+        <div style="margin-top:clamp(32px,4vw,52px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(280px,100%), 1fr)); gap:clamp(32px,4vw,56px); align-items:start">
+          <sc-for list="{{drinkGroups}}" as="g" hint-placeholder-count="3">
+            <div data-rv style="border-top:1px solid #C9C1AE; padding-top:24px">
+              <h3 lang="en" style="margin:0; font-family:Manrope,sans-serif; font-size:13.5px; font-weight:800; letter-spacing:.22em; color:#76573E">{{g.name}}</h3>
+              <div style="margin-top:10px; display:flex; flex-direction:column">
+                <sc-for list="{{g.items}}" as="it" hint-placeholder-count="3">
+                  <div style="padding:13px 2px; border-bottom:1px dashed #D5CDBA">
+                    <div style="display:flex; align-items:baseline; gap:12px">
+                      <span style="font-family:'Noto Sans JP',Manrope,sans-serif; font-weight:600; font-size:15.5px; color:#242827">{{it.name}}</span>
+                      <span style="flex:1; border-bottom:1px dotted #C4BCA8; transform:translateY(-4px)"></span>
+                      <span style="font-family:Manrope,sans-serif; font-weight:700; font-size:13.5px; color:#5A5E5B">{{it.price}}</span>
+                    </div>
+                    <p style="margin:4px 0 0; font-family:'Noto Sans JP',sans-serif; font-size:12.5px; line-height:1.8; color:#8A8375">{{it.sub}}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <p data-rv style="margin:clamp(28px,3.5vw,40px) 0 0; text-align:center">
+          <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:13px; line-height:2; color:#8A8375">エスプレッソドリンクの選び方は Coffee &amp; Beer のページでもご紹介しています。</span></sc-if>
+          <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:13.5px; line-height:1.9; color:#8A8375">Not sure which espresso drink to pick? See our guide on the Coffee &amp; Beer page.</span></sc-if>
+        </p>
+      </div>
+    </section>
+
+    <section id="sweets" data-screen-label="Menu / Sweets" style="padding:0 clamp(20px,4.5vw,60px) clamp(76px,8.5vw,120px)">
+      <div style="max-width:1360px; margin:0 auto">
+        <div data-rv style="background:#17363A; color:#F3EFE7; border-radius:26px; padding:clamp(44px,6vw,84px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(320px,100%), 1fr)); gap:clamp(28px,4vw,64px); align-items:center; overflow:hidden; position:relative">
+          <svg aria-hidden="true" width="260" height="260" viewBox="0 0 260 260" style="position:absolute; right:-70px; bottom:-80px"><circle cx="130" cy="130" r="128" fill="none" stroke="rgba(243,239,231,.16)" stroke-width="1.3"></circle></svg>
+          <div style="position:relative">
+            <h2 lang="en" style="margin:0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(36px,4.6vw,60px); line-height:1.02; color:#F6F2EA">SEASONAL<br>SWEETS</h2>
+            <p style="margin:18px 0 0; max-width:44ch">
+              <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:14.5px; line-height:2.15; color:rgba(243,239,231,.85)">その日にご用意しているスイーツは、<br>店頭またはInstagramでご確認ください。</span></sc-if>
+              <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:15px; line-height:1.9; color:rgba(243,239,231,.85)">Today’s sweets are posted at the counter<br>and on Instagram.</span></sc-if>
+            </p>
+            <a href="{{igUrl}}" target="_blank" rel="noopener noreferrer" aria-label="{{igAria}}" style="display:inline-flex; align-items:center; gap:12px; margin-top:24px; background:transparent; color:#F3EFE7; border:1px solid rgba(243,239,231,.5); border-radius:999px; padding:15px 30px; font-family:Manrope,sans-serif; font-size:12.5px; font-weight:800; letter-spacing:.15em; text-decoration:none; transition:background .25s ease, color .25s ease, border-color .25s ease" style-hover="background:#F3EFE7; color:#17363A; border-color:#F3EFE7">SEE TODAY’S SWEETS<span aria-hidden="true" style="font-size:11px">↗</span></a>
+          </div>
+          <div style="position:relative">
+            <img src="assets/img05-frenchtoast.webp" srcset="assets/img05-frenchtoast-800.webp 800w, assets/img05-frenchtoast.webp 1250w" sizes="(max-width: 900px) 86vw, 38vw" alt="{{aFrench}}" width="1250" height="1562" loading="lazy" decoding="async" style="width:100%; max-height:420px; aspect-ratio:4/3.1; object-fit:cover; border-radius:20px; transform:rotate(1.4deg); display:block">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Menu / Full menu and notes" style="border-top:1px solid #E7E0D1; padding:clamp(64px,7.5vw,104px) clamp(20px,4.5vw,60px)">
+      <div style="max-width:900px; margin:0 auto; text-align:center">
+        <sc-if value="{{hasFull}}" hint-placeholder-val="{{ false }}">
+          <a href="{{fullMenuUrl}}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:12px; background:#17363A; color:#F3EFE7; border:1px solid #17363A; border-radius:999px; padding:17px 36px; font-family:Manrope,sans-serif; font-size:13px; font-weight:800; letter-spacing:.15em; text-decoration:none; transition:background .25s ease" style-hover="background:#0E272B; color:#F3EFE7">VIEW FULL MENU<span aria-hidden="true" style="font-size:15px">→</span></a>
+        </sc-if>
+        <sc-if value="{{noFull}}" hint-placeholder-val="{{ false }}">
+          <p style="margin:0">
+            <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:14px; line-height:2.1; color:#5A5E5B">フルメニューは現在準備中です。最新の内容はInstagramをご確認ください。</span></sc-if>
+            <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:14.5px; line-height:1.9; color:#5A5E5B">The full menu is on its way. For today’s line-up, see Instagram.</span></sc-if>
+          </p>
+          <a href="{{igUrl}}" target="_blank" rel="noopener noreferrer" aria-label="{{igAria}}" style="display:inline-flex; align-items:center; gap:12px; margin-top:20px; background:transparent; color:#242827; border:1px solid #A79F8D; border-radius:999px; padding:15px 30px; font-family:Manrope,sans-serif; font-size:12.5px; font-weight:800; letter-spacing:.15em; text-decoration:none; transition:border-color .25s ease, background .25s ease" style-hover="border-color:#242827; background:rgba(36,40,39,.05); color:#242827">SEE TODAY’S UPDATES<span aria-hidden="true" style="font-size:11px">↗</span></a>
+        </sc-if>
+        <p style="margin:clamp(28px,3.5vw,40px) auto 0; max-width:62ch; border-top:1px solid #E3DCCC; padding-top:22px">
+          <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:12.5px; line-height:2.1; color:#8A8375">メニュー内容や提供状況は変更になる場合があります。価格は正式メニューの確定後に掲載します。最新情報は店頭またはInstagramをご確認ください。</span></sc-if>
+          <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:13px; line-height:1.9; color:#8A8375">Menu items and availability may change. Prices will be added once the official menu is confirmed. For the latest, please check in store or on Instagram.</span></sc-if>
+        </p>
+      </div>
+    </section>
+
+  </main>
+  <dc-import name="SiteFooter" lang="{{lang}}" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    lang: (function () { try { return localStorage.getItem('hangout_lang') || 'ja'; } catch (e) { return 'ja'; } })(),
+    db: null,
+    tab: 'morning',
+  };
+
+  componentDidMount() {
+    var self = this;
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'ja' || q === 'en') { this.setLang(q); }
+    } catch (e) {}
+    import('./store.js').then(function (m) { self.setState({ db: m }); self._applyLang(self.state.lang, m); });
+    import('./fx.js').then(function (m) { self._fxOff = m.initFX(); });
+    this._applyLang(this.state.lang, null);
+    this._onScroll = function () {
+      var ids = ['morning', 'lunch', 'drinks', 'sweets'];
+      var active = 'morning';
+      for (var i = 0; i < ids.length; i++) {
+        var el = document.getElementById(ids[i]);
+        if (el && el.getBoundingClientRect().top < 260) active = ids[i];
+      }
+      if (active !== self.state.tab) self.setState({ tab: active });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+
+  componentWillUnmount() {
+    if (this._fxOff) this._fxOff();
+    window.removeEventListener('scroll', this._onScroll);
+  }
+
+  _go(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var reduced = false;
+    try { reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    var y = el.getBoundingClientRect().top + window.scrollY - 172;
+    window.scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
+  }
+
+  _applyLang(l, dbMaybe) {
+    var db = dbMaybe || this.state.db;
+    try { document.documentElement.lang = l; } catch (e) {}
+    if (!db || !db.seo) return;
+    var apply = function () {
+      try {
+        document.title = l === 'ja' ? db.seo.menu.tJa : db.seo.menu.tEn;
+        var md = document.querySelector('meta[name="description"]');
+        if (md) md.setAttribute('content', l === 'ja' ? db.seo.menu.dJa : db.seo.menu.dEn);
+      } catch (e) {}
+    };
+    apply();
+    setTimeout(apply, 200);
+    setTimeout(apply, 700);
+  }
+
+  setLang = (l) => {
+    try { localStorage.setItem('hangout_lang', l); } catch (e) {}
+    this.setState({ lang: l });
+    this._applyLang(l, null);
+    try {
+      var u = new URL(location.href);
+      u.searchParams.set('lang', l);
+      history.replaceState(null, '', u);
+    } catch (e) {}
+  };
+
+  renderVals() {
+    var self = this;
+    var ja = this.state.lang === 'ja';
+    var db = this.state.db;
+    var s = db ? db.site : null;
+    var I = db ? db.IMG : null;
+    var tab = this.state.tab;
+    function alt(key) { return I ? (ja ? I[key].altJa : I[key].altEn) : ''; }
+    function mapItem(it) {
+      return {
+        name: ja ? it.ja : it.en,
+        sub: it.ph ? '' : (ja ? it.en : it.ja),
+        desc: it.dJa ? (ja ? it.dJa : it.dEn) : '',
+        price: it.price,
+        nameC: it.ph ? '#9B947F' : '#242827',
+      };
+    }
+    var m = db ? db.menu : null;
+    function chip(id) {
+      var on = tab === id;
+      return {
+        bg: on ? '#17363A' : 'transparent',
+        c: on ? '#F3EFE7' : '#4C504E',
+        bc: on ? '#17363A' : '#C9C1AE',
+        cur: on ? 'true' : 'false',
+      };
+    }
+    var cm = chip('morning'), cl = chip('lunch'), cd = chip('drinks'), cs = chip('sweets');
+    return {
+      lang: this.state.lang, ja: ja, en: !ja, setLang: this.setLang,
+      morning: s ? s.morning : '9:00–11:30 L.O.', lunch: s ? s.lunch : '11:30–16:30 L.O.',
+      igUrl: s ? s.instagramUrl : 'https://www.instagram.com/hangout_coffee_/',
+      igAria: ja ? 'Instagram（新しいタブで開きます）' : 'Instagram (opens in a new tab)',
+      morningItems: m ? m.morning.map(mapItem) : [],
+      lunchItems: m ? m.lunch.map(mapItem) : [],
+      drinkGroups: m ? m.drinkGroups.map(function (g) { return { name: g.name, items: g.items.map(mapItem) }; }) : [],
+      hasFull: !!(m && m.fullMenuUrl),
+      noFull: !!(m && !m.fullMenuUrl),
+      fullMenuUrl: m && m.fullMenuUrl ? m.fullMenuUrl : '#',
+      bgM: cm.bg, cM: cm.c, bcM: cm.bc, curM: cm.cur,
+      bgL: cl.bg, cL: cl.c, bcL: cl.bc, curL: cl.cur,
+      bgD: cd.bg, cD: cd.c, bcD: cd.bc, curD: cd.cur,
+      bgS: cs.bg, cS: cs.c, bcS: cs.bc, curS: cs.cur,
+      goMorning: function () { self._go('morning'); },
+      goLunch: function () { self._go('lunch'); },
+      goDrinks: function () { self._go('drinks'); },
+      goSweets: function () { self._go('sweets'); },
+      aBread: alt('bread'), aBenedict: alt('benedict'), aFrench: alt('frenchtoast'), aSandwich: alt('sandwich'),
+    };
+  }
+}
+</script>
+</body>
+</html>

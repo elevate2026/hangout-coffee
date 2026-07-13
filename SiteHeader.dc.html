@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&amp;family=Manrope:wght@400..800&amp;family=Noto+Sans+JP:wght@400..700&amp;display=swap" rel="stylesheet">
+  <style>
+    a { color: #17363A; }
+    a:hover { color: #76573E; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #C2A058; outline-offset: 3px; }
+    @keyframes hangDrawer { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</helmet>
+<div data-screen-label="Site header">
+  <a href="#main" style="position:fixed; left:-9999px; top:14px; z-index:600; background:#17363A; color:#F3EFE7; padding:12px 20px; border-radius:999px; font-family:Manrope,sans-serif; font-size:13px; font-weight:700; letter-spacing:.08em; text-decoration:none" style-focus="left:14px">Skip to content</a>
+  <div style="height:104px"></div>
+  <div style="position:fixed; top:0; left:0; right:0; z-index:320; background:#F3EFE7; box-shadow:{{hShadow}}; transition:box-shadow .35s ease">
+    <div style="max-width:1480px; margin:0 auto; box-sizing:border-box; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:16px clamp(20px,4.5vw,60px); height:{{barH}}; transition:height .35s ease">
+      <a href="Home.dc.html" aria-label="{{homeAria}}" style="display:inline-flex; align-items:center; flex-shrink:0; border-radius:50%">
+        <img src="assets/img01-logo.webp" alt="Hangout coffee" width="72" height="72" style="width:{{logoS}}; height:{{logoS}}; border-radius:50%; border:1px solid #DFD8C9; object-fit:cover; display:block; background:#FDFDFB; transition:width .35s ease, height .35s ease">
+      </a>
+      <sc-if value="{{deskNav}}" hint-placeholder-val="{{ true }}">
+        <nav aria-label="{{navAria}}" style="display:flex; align-items:center; gap:clamp(10px,1.4vw,24px)">
+          <a href="Home.dc.html" style="font-family:Manrope,sans-serif; font-size:12.5px; font-weight:700; letter-spacing:.12em; color:#2A2E2D; text-decoration:none; padding:14px 1px; white-space:nowrap; background-image:linear-gradient(#17363A,#17363A); background-repeat:no-repeat; background-position:0 calc(100% - 9px); background-size:0% 1.5px; transition:background-size .3s ease, color .2s ease; box-shadow:{{shHome}}" style-hover="background-size:100% 1.5px; color:#17363A">HOME</a>
+          <a href="About.dc.html" style="font-family:Manrope,sans-serif; font-size:12.5px; font-weight:700; letter-spacing:.12em; color:#2A2E2D; text-decoration:none; padding:14px 1px; white-space:nowrap; background-image:linear-gradient(#17363A,#17363A); background-repeat:no-repeat; background-position:0 calc(100% - 9px); background-size:0% 1.5px; transition:background-size .3s ease, color .2s ease; box-shadow:{{shAbout}}" style-hover="background-size:100% 1.5px; color:#17363A">ABOUT</a>
+          <a href="Menu.dc.html" style="font-family:Manrope,sans-serif; font-size:12.5px; font-weight:700; letter-spacing:.12em; color:#2A2E2D; text-decoration:none; padding:14px 1px; white-space:nowrap; background-image:linear-gradient(#17363A,#17363A); background-repeat:no-repeat; background-position:0 calc(100% - 9px); background-size:0% 1.5px; transition:background-size .3s ease, color .2s ease; box-shadow:{{shMenu}}" style-hover="background-size:100% 1.5px; color:#17363A">MENU</a>
+          <a href="CoffeeBeer.dc.html" style="font-family:Manrope,sans-serif; font-size:12.5px; font-weight:700; letter-spacing:.12em; color:#2A2E2D; text-decoration:none; padding:14px 1px; white-space:nowrap; background-image:linear-gradient(#17363A,#17363A); background-repeat:no-repeat; background-position:0 calc(100% - 9px); background-size:0% 1.5px; transition:background-size .3s ease, color .2s ease; box-shadow:{{shCoffee}}" style-hover="background-size:100% 1.5px; color:#17363A">COFFEE &amp; BEER</a>
+          <a href="WhatsOn.dc.html" style="font-family:Manrope,sans-serif; font-size:12.5px; font-weight:700; letter-spacing:.12em; color:#2A2E2D; text-decoration:none; padding:14px 1px; white-space:nowrap; background-image:linear-gradient(#17363A,#17363A); background-repeat:no-repeat; background-position:0 calc(100% - 9px); background-size:0% 1.5px; transition:background-size .3s ease, color .2s ease; box-shadow:{{shWhatson}}" style-hover="background-size:100% 1.5px; color:#17363A">WHAT’S ON</a>
+          <a href="Gallery.dc.html" style="font-family:Manrope,sans-serif; font-size:12.5px; font-weight:700; letter-spacing:.12em; color:#2A2E2D; text-decoration:none; padding:14px 1px; white-space:nowrap; background-image:linear-gradient(#17363A,#17363A); background-repeat:no-repeat; background-position:0 calc(100% - 9px); background-size:0% 1.5px; transition:background-size .3s ease, color .2s ease; box-shadow:{{shGallery}}" style-hover="background-size:100% 1.5px; color:#17363A">GALLERY</a>
+          <a href="Visit.dc.html" style="font-family:Manrope,sans-serif; font-size:12.5px; font-weight:700; letter-spacing:.12em; color:#2A2E2D; text-decoration:none; padding:14px 1px; white-space:nowrap; background-image:linear-gradient(#17363A,#17363A); background-repeat:no-repeat; background-position:0 calc(100% - 9px); background-size:0% 1.5px; transition:background-size .3s ease, color .2s ease; box-shadow:{{shVisit}}" style-hover="background-size:100% 1.5px; color:#17363A">VISIT</a>
+          <a href="https://www.instagram.com/hangout_coffee_/" target="_blank" rel="noopener noreferrer" aria-label="{{igAria}}" style="font-family:Manrope,sans-serif; font-size:12.5px; font-weight:700; letter-spacing:.12em; color:#2A2E2D; text-decoration:none; padding:14px 1px; white-space:nowrap; background-image:linear-gradient(#17363A,#17363A); background-repeat:no-repeat; background-position:0 calc(100% - 9px); background-size:0% 1.5px; transition:background-size .3s ease, color .2s ease" style-hover="background-size:100% 1.5px; color:#17363A">INSTAGRAM<span aria-hidden="true" style="font-size:10px; margin-left:4px; vertical-align:2px">↗</span></a>
+          <div style="display:flex; align-items:center; gap:1px; margin-left:clamp(4px,1vw,16px); padding-left:clamp(12px,1.4vw,24px); border-left:1px solid #DCD5C6">
+            <button onClick="{{setJa}}" aria-pressed="{{jaPressed}}" lang="ja" style="background:none; border:none; cursor:pointer; font-family:Manrope,sans-serif; font-size:12px; font-weight:800; letter-spacing:.14em; padding:12px 5px; color:{{jaC}}; box-shadow:{{jaSh}}; transition:color .2s ease">JP</button>
+            <span aria-hidden="true" style="color:#B9B2A2; font-size:11px">/</span>
+            <button onClick="{{setEn}}" aria-pressed="{{enPressed}}" lang="en" style="background:none; border:none; cursor:pointer; font-family:Manrope,sans-serif; font-size:12px; font-weight:800; letter-spacing:.14em; padding:12px 5px; color:{{enC}}; box-shadow:{{enSh}}; transition:color .2s ease">EN</button>
+          </div>
+        </nav>
+      </sc-if>
+      <sc-if value="{{mobNav}}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{openMenu}}" aria-label="{{menuAria}}" aria-expanded="{{openStr}}" style="width:48px; height:48px; border-radius:999px; border:1px solid #C9C2B0; background:#F3EFE7; cursor:pointer; display:inline-flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:0; flex-shrink:0">
+          <span style="display:block; width:18px; height:1.6px; background:#242827"></span>
+          <span style="display:block; width:18px; height:1.6px; background:#242827"></span>
+        </button>
+      </sc-if>
+    </div>
+  </div>
+  <sc-if value="{{open}}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="true" aria-label="{{menuAria}}" style="position:fixed; inset:0; z-index:480; background:#17363A; color:#F3EFE7; display:flex; flex-direction:column; box-sizing:border-box; padding:clamp(20px,4vw,36px) clamp(20px,5vw,44px); overflow-y:auto; animation:hangDrawer .35s ease both">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-shrink:0">
+        <img src="assets/img01-logo.webp" alt="Hangout coffee" width="52" height="52" style="width:52px; height:52px; border-radius:50%; border:1px solid rgba(243,239,231,.32); display:block; background:#FDFDFB">
+        <button onClick="{{closeMenu}}" aria-label="{{closeAria}}" style="width:48px; height:48px; border-radius:999px; border:1px solid rgba(243,239,231,.38); background:transparent; color:#F3EFE7; font-size:22px; cursor:pointer; line-height:1; padding:0">×</button>
+      </div>
+      <nav aria-label="{{navAria}}" style="display:flex; flex-direction:column; margin-top:clamp(20px,4.5vh,44px); flex:1">
+        <a href="Home.dc.html" style="font-family:Fraunces,serif; font-weight:450; font-size:clamp(28px,5.8vh,40px); color:{{mcHome}}; text-decoration:none; padding:13px 4px; border-bottom:1px solid rgba(243,239,231,.14); display:flex; justify-content:space-between; align-items:baseline; gap:12px"><span>Home</span><span aria-hidden="true" style="font-family:Manrope,sans-serif; font-size:11px; letter-spacing:.18em; color:rgba(243,239,231,.42)">01</span></a>
+        <a href="About.dc.html" style="font-family:Fraunces,serif; font-weight:450; font-size:clamp(28px,5.8vh,40px); color:{{mcAbout}}; text-decoration:none; padding:13px 4px; border-bottom:1px solid rgba(243,239,231,.14); display:flex; justify-content:space-between; align-items:baseline; gap:12px"><span>About</span><span aria-hidden="true" style="font-family:Manrope,sans-serif; font-size:11px; letter-spacing:.18em; color:rgba(243,239,231,.42)">02</span></a>
+        <a href="Menu.dc.html" style="font-family:Fraunces,serif; font-weight:450; font-size:clamp(28px,5.8vh,40px); color:{{mcMenu}}; text-decoration:none; padding:13px 4px; border-bottom:1px solid rgba(243,239,231,.14); display:flex; justify-content:space-between; align-items:baseline; gap:12px"><span>Menu</span><span aria-hidden="true" style="font-family:Manrope,sans-serif; font-size:11px; letter-spacing:.18em; color:rgba(243,239,231,.42)">03</span></a>
+        <a href="CoffeeBeer.dc.html" style="font-family:Fraunces,serif; font-weight:450; font-size:clamp(28px,5.8vh,40px); color:{{mcCoffee}}; text-decoration:none; padding:13px 4px; border-bottom:1px solid rgba(243,239,231,.14); display:flex; justify-content:space-between; align-items:baseline; gap:12px"><span>Coffee &amp; Beer</span><span aria-hidden="true" style="font-family:Manrope,sans-serif; font-size:11px; letter-spacing:.18em; color:rgba(243,239,231,.42)">04</span></a>
+        <a href="WhatsOn.dc.html" style="font-family:Fraunces,serif; font-weight:450; font-size:clamp(28px,5.8vh,40px); color:{{mcWhatson}}; text-decoration:none; padding:13px 4px; border-bottom:1px solid rgba(243,239,231,.14); display:flex; justify-content:space-between; align-items:baseline; gap:12px"><span>What’s On</span><span aria-hidden="true" style="font-family:Manrope,sans-serif; font-size:11px; letter-spacing:.18em; color:rgba(243,239,231,.42)">05</span></a>
+        <a href="Gallery.dc.html" style="font-family:Fraunces,serif; font-weight:450; font-size:clamp(28px,5.8vh,40px); color:{{mcGallery}}; text-decoration:none; padding:13px 4px; border-bottom:1px solid rgba(243,239,231,.14); display:flex; justify-content:space-between; align-items:baseline; gap:12px"><span>Gallery</span><span aria-hidden="true" style="font-family:Manrope,sans-serif; font-size:11px; letter-spacing:.18em; color:rgba(243,239,231,.42)">06</span></a>
+        <a href="Visit.dc.html" style="font-family:Fraunces,serif; font-weight:450; font-size:clamp(28px,5.8vh,40px); color:{{mcVisit}}; text-decoration:none; padding:13px 4px; border-bottom:1px solid rgba(243,239,231,.14); display:flex; justify-content:space-between; align-items:baseline; gap:12px"><span>Visit</span><span aria-hidden="true" style="font-family:Manrope,sans-serif; font-size:11px; letter-spacing:.18em; color:rgba(243,239,231,.42)">07</span></a>
+        <a href="https://www.instagram.com/hangout_coffee_/" target="_blank" rel="noopener noreferrer" aria-label="{{igAria}}" style="font-family:Fraunces,serif; font-weight:450; font-size:clamp(28px,5.8vh,40px); color:#F3EFE7; text-decoration:none; padding:13px 4px; display:flex; justify-content:space-between; align-items:baseline; gap:12px"><span>Instagram <span aria-hidden="true" style="font-size:.55em; vertical-align:6px">↗</span></span><span aria-hidden="true" style="font-family:Manrope,sans-serif; font-size:11px; letter-spacing:.18em; color:rgba(243,239,231,.42)">EXT</span></a>
+      </nav>
+      <div style="display:flex; align-items:center; gap:20px; padding:20px 4px 8px; border-top:1px solid rgba(243,239,231,.14); flex-shrink:0">
+        <button onClick="{{setJa}}" aria-pressed="{{jaPressed}}" lang="ja" style="background:none; border:none; cursor:pointer; font-family:'Noto Sans JP',sans-serif; font-size:15px; font-weight:600; padding:10px 2px; color:{{dJaC}}">日本語</button>
+        <span aria-hidden="true" style="color:rgba(243,239,231,.35)">/</span>
+        <button onClick="{{setEn}}" aria-pressed="{{enPressed}}" lang="en" style="background:none; border:none; cursor:pointer; font-family:Manrope,sans-serif; font-size:15px; font-weight:600; padding:10px 2px; color:{{dEnC}}">English</button>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1280, &quot;height&quot;: 240}, &quot;current&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;home&quot;, &quot;about&quot;, &quot;menu&quot;, &quot;coffee&quot;, &quot;whatson&quot;, &quot;gallery&quot;, &quot;visit&quot;], &quot;default&quot;: &quot;home&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;lang&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;ja&quot;, &quot;en&quot;], &quot;default&quot;: &quot;ja&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;onLang&quot;: {&quot;editor&quot;: null, &quot;tsType&quot;: &quot;(lang: string) =&gt; void&quot;}}">
+class Component extends DCLogic {
+  state = { sc: false, open: false, mob: false };
+
+  componentDidMount() {
+    var self = this;
+    this._mq = window.matchMedia('(max-width: 1120px)');
+    this._updMq = function () { self.setState({ mob: self._mq.matches, open: self._mq.matches ? self.state.open : false }); };
+    this._updMq();
+    if (this._mq.addEventListener) { this._mq.addEventListener('change', this._updMq); } else { this._mq.addListener(this._updMq); }
+    this._onScroll = function () {
+      var sc = window.scrollY > 14;
+      if (sc !== self.state.sc) self.setState({ sc: sc });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+    this._onKey = function (e) { if (e.key === 'Escape' && self.state.open) self.closeMenu(); };
+    window.addEventListener('keydown', this._onKey);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('keydown', this._onKey);
+    if (this._mq) {
+      if (this._mq.removeEventListener) { this._mq.removeEventListener('change', this._updMq); } else { this._mq.removeListener(this._updMq); }
+    }
+    document.body.style.overflow = '';
+  }
+
+  openMenu = () => { this.setState({ open: true }); document.body.style.overflow = 'hidden'; };
+  closeMenu = () => { this.setState({ open: false }); document.body.style.overflow = ''; };
+
+  renderVals() {
+    var self = this;
+    var cur = this.props.current || '';
+    var ja = (this.props.lang || 'ja') === 'ja';
+    var sc = this.state.sc;
+    function sh(id) { return cur === id ? 'inset 0 -2px 0 #C2A058' : 'none'; }
+    function mc(id) { return cur === id ? '#C2A058' : '#F3EFE7'; }
+    return {
+      deskNav: !this.state.mob,
+      mobNav: this.state.mob,
+      open: this.state.open,
+      openStr: this.state.open ? 'true' : 'false',
+      barH: sc ? '78px' : '104px',
+      logoS: sc ? '54px' : '72px',
+      hShadow: sc ? '0 1px 0 #E2DBCB' : '0 0 0 rgba(0,0,0,0)',
+      shHome: sh('home'), shAbout: sh('about'), shMenu: sh('menu'), shCoffee: sh('coffee'),
+      shWhatson: sh('whatson'), shGallery: sh('gallery'), shVisit: sh('visit'),
+      mcHome: mc('home'), mcAbout: mc('about'), mcMenu: mc('menu'), mcCoffee: mc('coffee'),
+      mcWhatson: mc('whatson'), mcGallery: mc('gallery'), mcVisit: mc('visit'),
+      jaC: ja ? '#242827' : '#8F8878', enC: !ja ? '#242827' : '#8F8878',
+      jaSh: ja ? 'inset 0 -2px 0 #C2A058' : 'none', enSh: !ja ? 'inset 0 -2px 0 #C2A058' : 'none',
+      jaPressed: ja ? 'true' : 'false', enPressed: !ja ? 'true' : 'false',
+      dJaC: ja ? '#C2A058' : '#F3EFE7', dEnC: !ja ? '#C2A058' : '#F3EFE7',
+      openMenu: this.openMenu, closeMenu: this.closeMenu,
+      setJa: function () { if (self.props.onLang) self.props.onLang('ja'); },
+      setEn: function () { if (self.props.onLang) self.props.onLang('en'); },
+      igAria: ja ? 'Instagram（新しいタブで開きます）' : 'Instagram (opens in a new tab)',
+      homeAria: ja ? 'Hangout coffee ホームへ' : 'Hangout coffee — home',
+      menuAria: ja ? 'メニューを開く' : 'Open menu',
+      closeAria: ja ? 'メニューを閉じる' : 'Close menu',
+      navAria: ja ? 'メインナビゲーション' : 'Primary navigation',
+    };
+  }
+}
+</script>
+</body>
+</html>

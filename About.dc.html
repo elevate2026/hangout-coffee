@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>About｜Hangout coffee 松本</title>
+  <meta name="description" content="「Hangout＝特別な理由がなくても、時間を過ごす場所」。松本の2階にあるカフェの考え方と過ごし方。">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="alternate" hreflang="ja" href="About.dc.html?lang=ja">
+  <link rel="alternate" hreflang="en" href="About.dc.html?lang=en">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&amp;family=Manrope:wght@400..800&amp;family=Noto+Sans+JP:wght@400..700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #F3EFE7; color: #242827; overflow-x: clip; }
+    body { font-family: Manrope, 'Noto Sans JP', sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a { color: #17363A; }
+    a:hover { color: #76573E; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #C2A058; outline-offset: 3px; }
+    ::selection { background: #C2A058; color: #17363A; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+  </style>
+</helmet>
+<div style="background:#F3EFE7; color:#242827; overflow-x:clip">
+  <dc-import name="SiteHeader" current="about" lang="{{lang}}" on-lang="{{setLang}}" hint-size="100%,104px"></dc-import>
+  <main id="main">
+
+    <section data-screen-label="About / Hero" style="position:relative; overflow:hidden; min-height:clamp(440px,58vh,620px); display:flex; align-items:flex-end">
+      <img src="assets/img04-light.webp" srcset="assets/img04-light-800.webp 800w, assets/img04-light.webp 1440w" sizes="100vw" alt="{{aLight}}" width="1440" height="1440" fetchpriority="high" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover">
+      <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(18,31,34,.28), rgba(18,31,34,.66))"></div>
+      <div style="position:relative; z-index:1; width:100%; max-width:1400px; margin:0 auto; box-sizing:border-box; padding:clamp(64px,9vw,120px) clamp(20px,4.5vw,60px) clamp(48px,6vw,80px)">
+        <p data-hs="0" style="display:inline-flex; align-items:center; gap:12px; margin:0; font-size:11.5px; font-weight:800; letter-spacing:.32em; color:#E8C97A"><span aria-hidden="true" style="width:7px; height:7px; border-radius:50%; background:#E8C97A; display:inline-block"></span>ABOUT</p>
+        <h1 data-hs="1" lang="en" style="margin:clamp(14px,2vw,22px) 0 0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(56px,9vw,118px); line-height:.96; letter-spacing:-.01em; color:#F6F2EA">ABOUT<br>HANGOUT</h1>
+        <p data-hs="2" style="margin:clamp(14px,2vw,20px) 0 0">
+          <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:15px; line-height:2; color:rgba(246,242,234,.88)">松本の2階にある、日常のためのカフェ。</span></sc-if>
+          <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Fraunces,serif; font-style:italic; font-size:18px; color:rgba(246,242,234,.88)">A café for the everyday, one floor up in Matsumoto.</span></sc-if>
+        </p>
+      </div>
+    </section>
+
+    <section data-screen-label="About / Who we are" style="padding:clamp(84px,9.5vw,140px) clamp(20px,4.5vw,60px); overflow:hidden">
+      <div style="max-width:1360px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(420px,100%), 1fr)); gap:clamp(48px,6vw,96px); align-items:center">
+        <div data-rv>
+          <p style="display:inline-flex; align-items:center; gap:12px; margin:0; font-size:11.5px; font-weight:800; letter-spacing:.32em; color:#76573E"><span aria-hidden="true" style="width:7px; height:7px; border-radius:50%; background:#C2A058; display:inline-block"></span>WHO WE ARE</p>
+          <h2 lang="en" style="margin:clamp(18px,2.4vw,28px) 0 0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(42px,5.4vw,80px); line-height:1.02; color:#1E2322">A PLACE TO<br>HANG OUT</h2>
+          <p style="margin:clamp(18px,2.2vw,26px) 0 0">
+            <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-weight:600; font-size:clamp(18px,2vw,22px); line-height:1.9; color:#1E2322">日常の中にある、少し特別な居場所。</span></sc-if>
+            <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Fraunces,serif; font-style:italic; font-size:clamp(20px,2.2vw,25px); line-height:1.55; color:#1E2322">An everyday place that feels a little special.</span></sc-if>
+          </p>
+          <p style="margin:clamp(16px,2vw,22px) 0 0; max-width:46ch">
+            <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:15.5px; line-height:2.2; color:#4C504E">松本の街なか、通りを見下ろす建物の2階。<br><br>Hangout coffeeは、朝のコーヒーからランチ、午後のひと休みまで、それぞれの時間を自然体で過ごせるカフェです。<br><br>一人でゆっくり過ごす日も、誰かと会話を楽しむ日も。<br><br>コーヒーと食事を囲みながら、日常の中に心地よい時間をつくります。</span></sc-if>
+            <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:16px; line-height:1.95; color:#4C504E">One floor above the street, in the middle of Matsumoto.<br><br>Hangout coffee is a café for spending time naturally — from morning coffee to lunch to a slow afternoon break.<br><br>Some days alone with a book, some days deep in conversation.<br><br>Around good coffee and food, we make room for the comfortable hours of an ordinary day.</span></sc-if>
+          </p>
+        </div>
+        <div data-rv data-rvd="140" style="position:relative">
+          <svg aria-hidden="true" width="200" height="200" viewBox="0 0 200 200" style="position:absolute; right:-42px; top:-44px; z-index:0"><circle cx="100" cy="100" r="98" fill="none" stroke="#C2A058" stroke-width="1.3"></circle></svg>
+          <img src="assets/img02-counter.webp" srcset="assets/img02-counter-800.webp 800w, assets/img02-counter.webp 1080w" sizes="(max-width: 900px) 94vw, 44vw" alt="{{aCounter}}" width="1080" height="1440" loading="lazy" decoding="async" style="position:relative; z-index:1; width:100%; aspect-ratio:3/3.7; object-fit:cover; border-radius:24px; transform:rotate(1.3deg); display:block">
+          <span aria-hidden="true" style="position:absolute; left:-18px; bottom:38px; width:11px; height:11px; border-radius:50%; background:#76573E; opacity:.65; z-index:0"></span>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="About / Hang out meaning" style="background:#17363A; color:#F3EFE7; padding:clamp(96px,11vw,170px) clamp(20px,4.5vw,60px); text-align:center; overflow:hidden">
+      <div data-rv style="max-width:980px; margin:0 auto; position:relative">
+        <svg aria-hidden="true" width="300" height="300" viewBox="0 0 300 300" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%)"><circle cx="150" cy="150" r="148" fill="none" stroke="rgba(243,239,231,.14)" stroke-width="1.3"></circle></svg>
+        <p style="position:relative; margin:0; font-size:11.5px; font-weight:800; letter-spacing:.34em; color:#C2A058">OUR NAME</p>
+        <h2 lang="en" style="position:relative; margin:clamp(20px,3vw,34px) 0 0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(64px,12vw,164px); line-height:.95; letter-spacing:-.01em; color:#F6F2EA">HANG OUT</h2>
+        <p lang="en" style="position:relative; margin:clamp(20px,3vw,32px) 0 0; font-family:Fraunces,serif; font-style:italic; font-weight:400; font-size:clamp(19px,2.4vw,26px); line-height:1.6; color:#C2A058">to spend time together,<br>without needing a reason.</p>
+        <p lang="ja" style="position:relative; margin:clamp(18px,2.6vw,28px) 0 0; font-family:'Noto Sans JP',sans-serif; font-size:clamp(14.5px,1.5vw,16.5px); line-height:2.3; color:rgba(243,239,231,.82)">特別な理由がなくても、<br>自然と人が集まり、時間を過ごすこと。</p>
+      </div>
+    </section>
+
+    <section data-screen-label="About / Coffee food and time" style="padding:clamp(84px,9.5vw,140px) clamp(20px,4.5vw,60px)">
+      <div style="max-width:1360px; margin:0 auto">
+        <div data-rv style="text-align:center; max-width:680px; margin:0 auto">
+          <p style="display:inline-flex; align-items:center; gap:12px; margin:0; font-size:11.5px; font-weight:800; letter-spacing:.32em; color:#76573E"><span aria-hidden="true" style="width:7px; height:7px; border-radius:50%; background:#C2A058; display:inline-block"></span>HOW TO SPEND IT</p>
+          <h2 lang="en" style="margin:clamp(18px,2.4vw,28px) 0 0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(40px,5vw,70px); line-height:1.04; color:#1E2322">COFFEE, FOOD<br>AND TIME</h2>
+        </div>
+        <div style="margin-top:clamp(44px,5.5vw,72px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(260px,100%), 1fr)); gap:clamp(28px,3.5vw,48px)">
+          <div data-rv style="border-top:1px solid #C9C1AE; padding-top:26px">
+            <p aria-hidden="true" style="margin:0; font-family:Fraunces,serif; font-style:italic; font-size:15px; color:#B4A87E">01</p>
+            <h3 lang="en" style="margin:12px 0 0; font-family:Manrope,sans-serif; font-size:15px; font-weight:800; letter-spacing:.2em; color:#242827">A QUIET MORNING</h3>
+            <p style="margin:14px 0 0">
+              <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:14.5px; line-height:2.1; color:#4C504E">コーヒーと朝食から始める、<br>少しゆっくりした朝。</span></sc-if>
+              <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:15px; line-height:1.9; color:#4C504E">Start slow — coffee first, then breakfast.</span></sc-if>
+            </p>
+          </div>
+          <div data-rv data-rvd="120" style="border-top:1px solid #C9C1AE; padding-top:26px">
+            <p aria-hidden="true" style="margin:0; font-family:Fraunces,serif; font-style:italic; font-size:15px; color:#B4A87E">02</p>
+            <h3 lang="en" style="margin:12px 0 0; font-family:Manrope,sans-serif; font-size:15px; font-weight:800; letter-spacing:.2em; color:#242827">A PLACE TO PAUSE</h3>
+            <p style="margin:14px 0 0">
+              <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:14.5px; line-height:2.1; color:#4C504E">買い物や観光、仕事の合間に、<br>ひと息つける場所。</span></sc-if>
+              <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:15px; line-height:1.9; color:#4C504E">A breather between errands, sightseeing and work.</span></sc-if>
+            </p>
+          </div>
+          <div data-rv data-rvd="240" style="border-top:1px solid #C9C1AE; padding-top:26px">
+            <p aria-hidden="true" style="margin:0; font-family:Fraunces,serif; font-style:italic; font-size:15px; color:#B4A87E">03</p>
+            <h3 lang="en" style="margin:12px 0 0; font-family:Manrope,sans-serif; font-size:15px; font-weight:800; letter-spacing:.2em; color:#242827">TIME TOGETHER</h3>
+            <p style="margin:14px 0 0">
+              <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:14.5px; line-height:2.1; color:#4C504E">食事や一杯を囲みながら、<br>会話を楽しむ時間。</span></sc-if>
+              <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:15px; line-height:1.9; color:#4C504E">Good plates, a good glass, easy conversation.</span></sc-if>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="About / The space" style="padding:0 clamp(20px,4.5vw,60px) clamp(84px,9.5vw,140px)">
+      <div style="max-width:1360px; margin:0 auto">
+        <div data-rv style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:clamp(28px,3.5vw,44px)">
+          <h2 lang="en" style="margin:0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(38px,4.8vw,66px); line-height:1.04; color:#1E2322">UPSTAIRS,<br>AWAY FROM THE RUSH</h2>
+          <p style="margin:0; max-width:36ch">
+            <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:14.5px; line-height:2.1; color:#4C504E">通りの喧騒から少し離れた、2階の空間。</span></sc-if>
+            <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:15px; line-height:1.9; color:#4C504E">One floor up, a step away from the street below.</span></sc-if>
+          </p>
+        </div>
+        <div data-rv data-rvd="100">
+          <img src="assets/img03-space.webp" srcset="assets/img03-space-800.webp 800w, assets/img03-space.webp 1440w" sizes="92vw" alt="{{aSpace}}" width="1440" height="1440" loading="lazy" decoding="async" style="width:100%; height:clamp(360px,62vh,640px); object-fit:cover; border-radius:26px; display:block">
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="About / Menu CTA" style="background:#EDE8DC; padding:clamp(72px,8.5vw,116px) clamp(20px,4.5vw,60px); text-align:center">
+      <div data-rv style="max-width:720px; margin:0 auto">
+        <p style="margin:0">
+          <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-weight:600; font-size:clamp(18px,2.2vw,23px); line-height:1.9; color:#1E2322">お腹が空いたら、メニューへ。</span></sc-if>
+          <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Fraunces,serif; font-style:italic; font-size:clamp(21px,2.4vw,26px); color:#1E2322">Hungry? Have a look at the menu.</span></sc-if>
+        </p>
+        <a href="Menu.dc.html" style="display:inline-flex; align-items:center; gap:12px; margin-top:clamp(22px,3vw,32px); background:#17363A; color:#F3EFE7; border:1px solid #17363A; border-radius:999px; padding:17px 36px; font-family:Manrope,sans-serif; font-size:13px; font-weight:800; letter-spacing:.15em; text-decoration:none; transition:background .25s ease, transform .25s ease" style-hover="background:#0E272B; color:#F3EFE7; transform:translateY(-2px)">EXPLORE THE MENU<span aria-hidden="true" style="font-size:15px">→</span></a>
+      </div>
+    </section>
+
+  </main>
+  <dc-import name="SiteFooter" lang="{{lang}}" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    lang: (function () { try { return localStorage.getItem('hangout_lang') || 'ja'; } catch (e) { return 'ja'; } })(),
+    db: null,
+  };
+
+  componentDidMount() {
+    var self = this;
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'ja' || q === 'en') { this.setLang(q); }
+    } catch (e) {}
+    import('./store.js').then(function (m) { self.setState({ db: m }); self._applyLang(self.state.lang, m); });
+    import('./fx.js').then(function (m) { self._fxOff = m.initFX(); });
+    this._applyLang(this.state.lang, null);
+  }
+
+  componentWillUnmount() { if (this._fxOff) this._fxOff(); }
+
+  _applyLang(l, dbMaybe) {
+    var db = dbMaybe || this.state.db;
+    try { document.documentElement.lang = l; } catch (e) {}
+    if (!db || !db.seo) return;
+    var apply = function () {
+      try {
+        document.title = l === 'ja' ? db.seo.about.tJa : db.seo.about.tEn;
+        var md = document.querySelector('meta[name="description"]');
+        if (md) md.setAttribute('content', l === 'ja' ? db.seo.about.dJa : db.seo.about.dEn);
+      } catch (e) {}
+    };
+    apply();
+    setTimeout(apply, 200);
+    setTimeout(apply, 700);
+  }
+
+  setLang = (l) => {
+    try { localStorage.setItem('hangout_lang', l); } catch (e) {}
+    this.setState({ lang: l });
+    this._applyLang(l, null);
+    try {
+      var u = new URL(location.href);
+      u.searchParams.set('lang', l);
+      history.replaceState(null, '', u);
+    } catch (e) {}
+  };
+
+  renderVals() {
+    var ja = this.state.lang === 'ja';
+    var I = this.state.db ? this.state.db.IMG : null;
+    function alt(key) { return I ? (ja ? I[key].altJa : I[key].altEn) : ''; }
+    return {
+      lang: this.state.lang, ja: ja, en: !ja, setLang: this.setLang,
+      aLight: alt('light'), aCounter: alt('counter'), aSpace: alt('space'),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Visit｜Hangout coffee 松本市中央2丁目・2F</title>
+  <meta name="description" content="長野県松本市中央2丁目3-20 2F。毎日9:00–17:00営業。通り沿いの入口から階段を上がった2階です。">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="alternate" hreflang="ja" href="Visit.dc.html?lang=ja">
+  <link rel="alternate" hreflang="en" href="Visit.dc.html?lang=en">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&amp;family=Manrope:wght@400..800&amp;family=Noto+Sans+JP:wght@400..700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #F3EFE7; color: #242827; overflow-x: clip; }
+    body { font-family: Manrope, 'Noto Sans JP', sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a { color: #17363A; }
+    a:hover { color: #76573E; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #C2A058; outline-offset: 3px; }
+    ::selection { background: #C2A058; color: #17363A; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+  </style>
+</helmet>
+<div style="background:#F3EFE7; color:#242827; overflow-x:clip">
+  <dc-import name="SiteHeader" current="visit" lang="{{lang}}" on-lang="{{setLang}}" hint-size="100%,104px"></dc-import>
+  <main id="main">
+
+    <section data-screen-label="Visit / Hero" style="background:#17363A; color:#F3EFE7; padding:clamp(64px,8vw,110px) clamp(20px,4.5vw,60px); overflow:hidden; position:relative">
+      <svg aria-hidden="true" width="320" height="320" viewBox="0 0 320 320" style="position:absolute; right:-90px; bottom:-120px"><circle cx="160" cy="160" r="158" fill="none" stroke="rgba(243,239,231,.14)" stroke-width="1.3"></circle></svg>
+      <div style="max-width:1360px; margin:0 auto; position:relative">
+        <p data-hs="0" style="display:inline-flex; align-items:center; gap:12px; margin:0; font-size:11.5px; font-weight:800; letter-spacing:.32em; color:#C2A058"><span aria-hidden="true" style="width:7px; height:7px; border-radius:50%; background:#C2A058; display:inline-block"></span>ACCESS</p>
+        <h1 data-hs="1" lang="en" style="margin:clamp(14px,2vw,24px) 0 0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(52px,8.5vw,116px); line-height:.96; letter-spacing:-.01em; color:#F6F2EA">FIND US<br>UPSTAIRS</h1>
+        <p data-hs="2" style="margin:clamp(16px,2vw,24px) 0 0; max-width:46ch">
+          <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:clamp(15px,1.5vw,17px); line-height:2.1; color:rgba(243,239,231,.86)">通り沿いの入口から、階段を上がった2階へ。</span></sc-if>
+          <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:clamp(15.5px,1.5vw,17.5px); line-height:1.9; color:rgba(243,239,231,.86)">Find us on the second floor,<br>up the stairs from the street.</span></sc-if>
+        </p>
+      </div>
+    </section>
+
+    <section data-screen-label="Visit / Store info" style="padding:clamp(64px,7.5vw,104px) clamp(20px,4.5vw,60px)">
+      <div style="max-width:1360px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(280px,100%), 1fr)); gap:clamp(32px,4vw,56px)">
+        <div data-rv style="border-top:1px solid #C9C1AE; padding-top:24px">
+          <h2 lang="en" style="margin:0; font-family:Manrope,sans-serif; font-size:12px; font-weight:800; letter-spacing:.26em; color:#76573E">ADDRESS</h2>
+          <p style="margin:16px 0 0; font-family:'Noto Sans JP',sans-serif; font-size:15.5px; line-height:2.1; color:#242827">{{postal}}<br>{{addr}}</p>
+          <p style="margin:10px 0 0; font-family:Manrope,sans-serif; font-size:13px; line-height:1.8; color:#8A8375">{{addrAlt}}</p>
+        </div>
+        <div data-rv data-rvd="100" style="border-top:1px solid #C9C1AE; padding-top:24px">
+          <h2 lang="en" style="margin:0; font-family:Manrope,sans-serif; font-size:12px; font-weight:800; letter-spacing:.26em; color:#76573E">OPEN EVERY DAY</h2>
+          <p style="margin:14px 0 0; font-family:Fraunces,serif; font-weight:400; font-size:clamp(28px,2.6vw,34px); color:#1E2322">{{hours}}</p>
+          <div style="margin-top:14px; display:flex; flex-direction:column">
+            <div style="display:flex; justify-content:space-between; gap:14px; padding:9px 0; border-top:1px solid #E3DCCC; font-family:Manrope,sans-serif; font-size:12.5px; letter-spacing:.08em"><span style="font-weight:800; color:#8A8375">MORNING</span><span style="font-weight:700; color:#242827">{{morning}}</span></div>
+            <div style="display:flex; justify-content:space-between; gap:14px; padding:9px 0; border-top:1px solid #E3DCCC; font-family:Manrope,sans-serif; font-size:12.5px; letter-spacing:.08em"><span style="font-weight:800; color:#8A8375">LUNCH</span><span style="font-weight:700; color:#242827">{{lunch}}</span></div>
+          </div>
+        </div>
+        <div data-rv data-rvd="200" style="border-top:1px solid #C9C1AE; padding-top:24px">
+          <h2 lang="en" style="margin:0; font-family:Manrope,sans-serif; font-size:12px; font-weight:800; letter-spacing:.26em; color:#76573E">GOOD TO KNOW</h2>
+          <p style="margin:16px 0 0; font-family:Manrope,sans-serif; font-size:14.5px; line-height:1.9; color:#242827"><span aria-hidden="true" style="color:#C2A058">★</span> {{rating}} <span style="color:#8A8375">· {{ratingLabel}}</span></p>
+          <p style="margin:8px 0 0; font-family:'Noto Sans JP',Manrope,sans-serif; font-size:13.5px; line-height:1.9; color:#5A5E5B">{{priceLabel}}</p>
+          <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:8px">
+            <span style="border:1px solid #C9C1AE; border-radius:999px; padding:8px 16px; font-family:Manrope,sans-serif; font-size:11.5px; font-weight:800; letter-spacing:.14em; color:#4C504E">EAT IN</span>
+            <span style="border:1px solid #C9C1AE; border-radius:999px; padding:8px 16px; font-family:Manrope,sans-serif; font-size:11.5px; font-weight:800; letter-spacing:.14em; color:#4C504E">TAKE OUT</span>
+          </div>
+          <p style="margin:12px 0 0; font-family:'Noto Sans JP',sans-serif; font-size:12px; line-height:1.9; color:#8A8375">{{takeoutNote}}</p>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Visit / Map" style="padding:0 clamp(20px,4.5vw,60px) clamp(76px,8.5vw,120px)">
+      <div style="max-width:1360px; margin:0 auto">
+        <div data-rv style="border-radius:24px; overflow:hidden; border:1px solid #DED7C6; background:#E8E3D6">
+          <iframe src="{{mapSrc}}" title="{{mapTitle}}" width="100%" height="460" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="display:block; width:100%; height:clamp(340px,52vh,500px); border:0"></iframe>
+        </div>
+        <div data-rv style="margin-top:22px; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px">
+          <a href="{{mapUrl}}" target="_blank" rel="noopener noreferrer" aria-label="{{mapAria}}" style="display:inline-flex; align-items:center; gap:12px; background:#17363A; color:#F3EFE7; border:1px solid #17363A; border-radius:999px; padding:16px 32px; font-family:Manrope,sans-serif; font-size:12.5px; font-weight:800; letter-spacing:.15em; text-decoration:none; transition:background .25s ease" style-hover="background:#0E272B; color:#F3EFE7">OPEN IN GOOGLE MAPS<span aria-hidden="true" style="font-size:11px">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Visit / Entrance" style="background:#EDE8DC; padding:clamp(76px,8.5vw,120px) clamp(20px,4.5vw,60px)">
+      <div style="max-width:1360px; margin:0 auto">
+        <div data-rv style="max-width:720px">
+          <p style="display:inline-flex; align-items:center; gap:12px; margin:0; font-size:11.5px; font-weight:800; letter-spacing:.32em; color:#76573E"><span aria-hidden="true" style="width:7px; height:7px; border-radius:50%; background:#C2A058; display:inline-block"></span>HOW TO FIND THE DOOR</p>
+          <h2 lang="en" style="margin:clamp(16px,2.2vw,26px) 0 0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(38px,4.8vw,66px); line-height:1.02; color:#1E2322">THE ENTRANCE</h2>
+          <p style="margin:18px 0 0; max-width:48ch">
+            <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:15px; line-height:2.15; color:#4C504E">店舗は建物の2階にあります。通り沿いの入口から階段をご利用ください。</span></sc-if>
+            <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:15.5px; line-height:1.9; color:#4C504E">We are on the second floor — take the stairs from the street-level entrance.</span></sc-if>
+          </p>
+        </div>
+        <div style="margin-top:clamp(36px,4.5vw,56px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(250px,100%), 1fr)); gap:clamp(22px,2.8vw,36px)">
+          <sc-for list="{{steps}}" as="st" hint-placeholder-count="4">
+            <div data-rv style="display:flex; flex-direction:column; gap:16px">
+              <div style="width:100%; aspect-ratio:4/3; border-radius:18px; border:1px solid #D5CDBA; background:repeating-linear-gradient(45deg, #E7E1D2 0 10px, #F0EBDF 10px 20px); display:flex; align-items:center; justify-content:center; padding:18px; box-sizing:border-box">
+                <span style="font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace; font-size:11px; letter-spacing:.14em; color:#8A8375; text-transform:uppercase; text-align:center">{{st.ph}}</span>
+              </div>
+              <div>
+                <p lang="en" style="margin:0; font-family:Fraunces,serif; font-style:italic; font-size:14px; color:#B4A87E">{{st.n}}</p>
+                <h3 lang="en" style="margin:8px 0 0; font-family:Manrope,sans-serif; font-size:14.5px; font-weight:800; letter-spacing:.16em; color:#242827">{{st.t}}</h3>
+                <p style="margin:10px 0 0; font-family:'Noto Sans JP',sans-serif; font-size:13.5px; line-height:2; color:#4C504E">{{st.text}}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <p data-rv style="margin:clamp(24px,3vw,36px) 0 0; text-align:center">
+          <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:12px; line-height:1.9; color:#8A8375">外観・入口・階段の写真は準備中です。実際の写真が届き次第、差し替えます。</span></sc-if>
+          <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:12.5px; line-height:1.9; color:#8A8375">Photos of the building, entrance and stairway are on their way.</span></sc-if>
+        </p>
+      </div>
+    </section>
+
+    <section data-screen-label="Visit / How to order" style="padding:clamp(76px,8.5vw,120px) clamp(20px,4.5vw,60px); overflow:hidden">
+      <div style="max-width:1360px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(400px,100%), 1fr)); gap:clamp(40px,5vw,84px); align-items:center">
+        <div data-rv style="position:relative">
+          <svg aria-hidden="true" width="190" height="190" viewBox="0 0 190 190" style="position:absolute; left:-40px; top:-40px"><circle cx="95" cy="95" r="93" fill="none" stroke="#C2A058" stroke-width="1.3"></circle></svg>
+          <img src="assets/img10-order.webp" srcset="assets/img10-order-800.webp 800w, assets/img10-order.webp 1440w" sizes="(max-width: 900px) 94vw, 44vw" alt="{{aOrder}}" width="1440" height="1440" loading="lazy" decoding="async" style="position:relative; z-index:1; width:100%; aspect-ratio:1/1.02; object-fit:cover; border-radius:24px; transform:rotate(-1.2deg); display:block">
+        </div>
+        <div data-rv data-rvd="120">
+          <p style="display:inline-flex; align-items:center; gap:12px; margin:0; font-size:11.5px; font-weight:800; letter-spacing:.32em; color:#76573E"><span aria-hidden="true" style="width:7px; height:7px; border-radius:50%; background:#C2A058; display:inline-block"></span>WHEN YOU ARRIVE</p>
+          <h2 lang="en" style="margin:clamp(16px,2.2vw,26px) 0 0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(38px,4.8vw,66px); line-height:1.02; color:#1E2322">HOW TO ORDER</h2>
+          <div style="margin-top:clamp(22px,2.8vw,34px); display:flex; flex-direction:column">
+            <sc-for list="{{orderSteps}}" as="os" hint-placeholder-count="4">
+              <div style="display:flex; gap:18px; align-items:flex-start; padding:15px 0; border-bottom:1px dashed #CFC7B4">
+                <span aria-hidden="true" style="flex-shrink:0; width:34px; height:34px; border-radius:50%; border:1px solid #B9B09A; display:inline-flex; align-items:center; justify-content:center; font-family:Fraunces,serif; font-style:italic; font-size:14px; color:#76573E">{{os.n}}</span>
+                <p style="margin:4px 0 0; font-family:'Noto Sans JP',Manrope,sans-serif; font-size:15px; line-height:1.95; color:#3C403E">{{os.text}}</p>
+              </div>
+            </sc-for>
+          </div>
+          <p style="margin:18px 0 0">
+            <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:12px; line-height:1.9; color:#8A8375">店内掲示のご案内をもとにしています。運用は変更となる場合があります。</span></sc-if>
+            <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:12.5px; line-height:1.9; color:#8A8375">Based on the sign in the shop — the flow may change.</span></sc-if>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Visit / FAQ" style="background:#17363A; color:#F3EFE7; padding:clamp(76px,8.5vw,120px) clamp(20px,4.5vw,60px)">
+      <div style="max-width:900px; margin:0 auto">
+        <div data-rv style="text-align:center">
+          <p style="display:inline-flex; align-items:center; gap:12px; margin:0; font-size:11.5px; font-weight:800; letter-spacing:.32em; color:#C2A058"><span aria-hidden="true" style="width:7px; height:7px; border-radius:50%; background:#C2A058; display:inline-block"></span>FAQ</p>
+          <h2 lang="en" style="margin:clamp(16px,2.2vw,26px) 0 0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(38px,4.8vw,64px); line-height:1.02; color:#F6F2EA">QUESTIONS,<br>ANSWERED</h2>
+          <p style="margin:14px 0 0">
+            <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:14px; color:rgba(243,239,231,.75)">よくあるご質問</span></sc-if>
+            <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Fraunces,serif; font-style:italic; font-size:16.5px; color:rgba(243,239,231,.75)">Before you visit</span></sc-if>
+          </p>
+        </div>
+        <dl data-rv style="margin:clamp(32px,4vw,48px) 0 0; padding:0; display:flex; flex-direction:column">
+          <sc-for list="{{faqs}}" as="f" hint-placeholder-count="6">
+            <div style="padding:22px 2px; border-bottom:1px solid rgba(243,239,231,.16)">
+              <dt style="font-family:'Noto Sans JP',Manrope,sans-serif; font-weight:600; font-size:16px; letter-spacing:.02em; color:#F3EFE7; display:flex; gap:14px"><span aria-hidden="true" style="font-family:Fraunces,serif; font-style:italic; color:#C2A058">Q</span><span>{{f.q}}</span></dt>
+              <dd style="margin:10px 0 0 30px; font-family:'Noto Sans JP',sans-serif; font-size:14.5px; line-height:2.05; color:rgba(243,239,231,.78)">{{f.a}}</dd>
+            </div>
+          </sc-for>
+        </dl>
+        <p data-rv style="margin:clamp(24px,3vw,36px) 0 0; text-align:center">
+          <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:12.5px; line-height:2; color:rgba(243,239,231,.55)">駐車場・Wi-Fi・お支払い方法などは、確認でき次第このページでご案内します。</span></sc-if>
+          <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:13px; line-height:1.9; color:rgba(243,239,231,.55)">Details like parking, Wi-Fi and payment options will be added here once confirmed.</span></sc-if>
+        </p>
+      </div>
+    </section>
+
+    <section data-screen-label="Visit / Instagram strip" style="padding:clamp(64px,7.5vw,104px) clamp(20px,4.5vw,60px); text-align:center">
+      <div data-rv style="max-width:720px; margin:0 auto">
+        <p style="margin:0">
+          <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-weight:600; font-size:clamp(17px,2vw,21px); line-height:1.95; color:#1E2322">ご来店前の最新情報は、Instagramをご確認ください。</span></sc-if>
+          <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Fraunces,serif; font-style:italic; font-size:clamp(20px,2.2vw,24px); color:#1E2322">For the latest before you visit, check Instagram.</span></sc-if>
+        </p>
+        <a href="{{igUrl}}" target="_blank" rel="noopener noreferrer" aria-label="{{igAria}}" style="display:inline-flex; align-items:center; gap:12px; margin-top:22px; background:transparent; color:#242827; border:1px solid #A79F8D; border-radius:999px; padding:16px 32px; font-family:Manrope,sans-serif; font-size:12.5px; font-weight:800; letter-spacing:.15em; text-decoration:none; transition:border-color .25s ease, background .25s ease" style-hover="border-color:#242827; background:rgba(36,40,39,.05); color:#242827">@HANGOUT_COFFEE_<span aria-hidden="true" style="font-size:11px">↗</span></a>
+      </div>
+    </section>
+
+  </main>
+  <dc-import name="SiteFooter" lang="{{lang}}" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    lang: (function () { try { return localStorage.getItem('hangout_lang') || 'ja'; } catch (e) { return 'ja'; } })(),
+    db: null,
+  };
+
+  componentDidMount() {
+    var self = this;
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'ja' || q === 'en') { this.setLang(q); }
+    } catch (e) {}
+    import('./store.js').then(function (m) { self.setState({ db: m }); self._applyLang(self.state.lang, m); });
+    import('./fx.js').then(function (m) { self._fxOff = m.initFX(); });
+    this._applyLang(this.state.lang, null);
+  }
+
+  componentWillUnmount() { if (this._fxOff) this._fxOff(); }
+
+  _applyLang(l, dbMaybe) {
+    var db = dbMaybe || this.state.db;
+    try { document.documentElement.lang = l; } catch (e) {}
+    if (!db || !db.seo) return;
+    var apply = function () {
+      try {
+        document.title = l === 'ja' ? db.seo.visit.tJa : db.seo.visit.tEn;
+        var md = document.querySelector('meta[name="description"]');
+        if (md) md.setAttribute('content', l === 'ja' ? db.seo.visit.dJa : db.seo.visit.dEn);
+      } catch (e) {}
+    };
+    apply();
+    setTimeout(apply, 200);
+    setTimeout(apply, 700);
+  }
+
+  setLang = (l) => {
+    try { localStorage.setItem('hangout_lang', l); } catch (e) {}
+    this.setState({ lang: l });
+    this._applyLang(l, null);
+    try {
+      var u = new URL(location.href);
+      u.searchParams.set('lang', l);
+      history.replaceState(null, '', u);
+    } catch (e) {}
+  };
+
+  renderVals() {
+    var ja = this.state.lang === 'ja';
+    var db = this.state.db;
+    var s = db ? db.site : null;
+    var I = db ? db.IMG : null;
+    var steps = db ? db.entranceSteps.map(function (st) {
+      return { n: st.n, t: st.t, text: ja ? st.ja : st.en, ph: st.ph };
+    }) : [];
+    steps = steps.concat(db ? [{
+      n: 'WELCOME',
+      t: 'UP ON THE 2ND FLOOR',
+      text: ja ? '階段を上がれば、Hangout coffeeです。' : 'At the top of the stairs — welcome to Hangout coffee.',
+      ph: 'Second-floor entrance photo',
+    }] : []);
+    var orderSteps = db ? db.orderSteps.map(function (os, i) {
+      return { n: String(i + 1), text: ja ? os.ja : os.en };
+    }) : [];
+    var faqs = db ? db.faq.map(function (f) {
+      return { q: ja ? f.qJa : f.qEn, a: ja ? f.aJa : f.aEn };
+    }) : [];
+    return {
+      lang: this.state.lang, ja: ja, en: !ja, setLang: this.setLang,
+      postal: s ? s.postal : '',
+      addr: s ? (ja ? s.addressJa : s.addressEn) : '',
+      addrAlt: s ? (ja ? s.addressEn : s.addressJa) : '',
+      hours: s ? s.hours : '9:00–17:00',
+      morning: s ? s.morning : '', lunch: s ? s.lunch : '',
+      rating: s ? s.rating : '', 
+      ratingLabel: s ? (ja ? 'Googleマップの口コミ ' + s.ratingCount + '件' : s.ratingCount + ' reviews on Google Maps') : '',
+      priceLabel: s ? (ja ? '予算の目安：お一人 ' + s.price + ' ほど' : 'Around ' + s.price + ' per person') : '',
+      takeoutNote: ja ? '一部メニューはテイクアウト可能です。対象は店頭でご確認ください。' : 'Some items are available to go — please ask at the counter.',
+      mapSrc: s ? s.mapEmbed : '',
+      mapUrl: s ? s.gmapsUrl : '#',
+      mapTitle: ja ? 'Hangout coffee の地図（Googleマップ）' : 'Map to Hangout coffee (Google Maps)',
+      mapAria: ja ? 'Googleマップで開く（新しいタブ）' : 'Open in Google Maps (new tab)',
+      steps: steps,
+      orderSteps: orderSteps,
+      faqs: faqs,
+      igUrl: s ? s.instagramUrl : 'https://www.instagram.com/hangout_coffee_/',
+      igAria: ja ? 'Instagram（新しいタブで開きます）' : 'Instagram (opens in a new tab)',
+      aOrder: I ? (ja ? I.order.altJa : I.order.altEn) : '',
+    };
+  }
+}
+</script>
+</body>
+</html>

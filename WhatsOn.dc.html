@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>What’s On｜Hangout coffee 松本</title>
+  <meta name="description" content="新メニュー、営業情報、クラフトビール入荷、店内の小さな出来事のお知らせ。">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="alternate" hreflang="ja" href="WhatsOn.dc.html?lang=ja">
+  <link rel="alternate" hreflang="en" href="WhatsOn.dc.html?lang=en">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&amp;family=Manrope:wght@400..800&amp;family=Noto+Sans+JP:wght@400..700&amp;display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #F3EFE7; color: #242827; overflow-x: clip; }
+    body { font-family: Manrope, 'Noto Sans JP', sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a { color: #17363A; }
+    a:hover { color: #76573E; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #C2A058; outline-offset: 3px; }
+    ::selection { background: #C2A058; color: #17363A; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+  </style>
+</helmet>
+<div style="background:#F3EFE7; color:#242827; overflow-x:clip">
+  <dc-import name="SiteHeader" current="whatson" lang="{{lang}}" on-lang="{{setLang}}" hint-size="100%,104px"></dc-import>
+  <main id="main">
+
+    <section data-screen-label="WhatsOn / Hero" style="padding:clamp(56px,7vw,96px) clamp(20px,4.5vw,60px) clamp(36px,4vw,56px)">
+      <div style="max-width:1160px; margin:0 auto">
+        <p data-hs="0" style="display:inline-flex; align-items:center; gap:12px; margin:0; font-size:11.5px; font-weight:800; letter-spacing:.32em; color:#76573E"><span aria-hidden="true" style="width:7px; height:7px; border-radius:50%; background:#C2A058; display:inline-block"></span>NEWS &amp; UPDATES</p>
+        <h1 data-hs="1" lang="en" style="margin:clamp(14px,2vw,24px) 0 0; font-family:Fraunces,serif; font-weight:380; font-size:clamp(56px,9vw,118px); line-height:.96; letter-spacing:-.01em; color:#1E2322">WHAT’S ON</h1>
+        <p data-hs="2" style="margin:clamp(16px,2vw,24px) 0 0; max-width:52ch">
+          <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><span lang="ja" style="font-family:'Noto Sans JP',sans-serif; font-size:15px; line-height:2.15; color:#4C504E">新しいメニュー、営業情報、クラフトビールの入荷、店内での小さな出来事をお知らせします。</span></sc-if>
+          <sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><span lang="en" style="font-family:Manrope,sans-serif; font-size:15.5px; line-height:1.9; color:#4C504E">New menu items, opening updates, craft-beer arrivals and small moments from the shop.</span></sc-if>
+        </p>
+      </div>
+    </section>
+
+    <section data-screen-label="WhatsOn / Filters and list" style="padding:0 clamp(20px,4.5vw,60px) clamp(84px,9.5vw,140px)">
+      <div style="max-width:1160px; margin:0 auto">
+        <div data-hs="3" style="display:flex; flex-wrap:wrap; gap:10px; border-top:1px solid #E3DCCC; padding-top:22px" role="group" aria-label="Filter updates by category">
+          <sc-for list="{{cats}}" as="c" hint-placeholder-count="6">
+            <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="cursor:pointer; border-radius:999px; border:1px solid {{c.bc}}; background:{{c.bg}}; color:{{c.col}}; padding:11px 22px; font-family:Manrope,sans-serif; font-size:12px; font-weight:800; letter-spacing:.14em; transition:background .25s ease, color .25s ease, border-color .25s ease">{{c.label}}</button>
+          </sc-for>
+        </div>
+        <sc-for list="{{posts}}" as="p" hint-placeholder-count="0">
+          <article data-rv style="margin-top:26px; border:1px solid #DED7C6; border-radius:20px; padding:30px 32px; background:#FAF8F3">
+            <div style="display:flex; flex-wrap:wrap; align-items:center; gap:12px; font-family:Manrope,sans-serif; font-size:11px; font-weight:800; letter-spacing:.18em; color:#76573E"><span>{{p.date}}</span><span style="border:1px solid #D7D2C8; border-radius:999px; padding:4px 12px">{{p.cat}}</span></div>
+            <h2 style="margin:16px 0 0; font-family:'Noto Sans JP',Fraunces,serif; font-weight:600; font-size:20px; line-height:1.6; color:#1E2322">{{p.title}}</h2>
+            <p style="margin:10px 0 0; font-family:'Noto Sans JP',sans-serif; font-size:14.5px; line-height:2.05; color:#4C504E">{{p.body}}</p>
+          </article>
+        </sc-for>
+        <sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+          <div data-hs="4" style="margin-top:30px; border:1px dashed #C9C1AE; border-radius:24px; padding:clamp(44px,6vw,72px); text-align:center; background:#F7F4EC">
+            <svg aria-hidden="true" width="54" height="54" viewBox="0 0 54 54" fill="none" stroke="#B4A87E" stroke-width="1.5" style="margin:0 auto; display:block"><circle cx="27" cy="27" r="25"></circle><circle cx="27" cy="27" r="9"></circle><circle cx="41" cy="13.5" r="2" fill="#B4A87E" stroke="none"></circle></svg>
+            <p lang="en" style="margin:22px 0 0; font-family:Fraunces,serif; font-style:italic; font-size:clamp(20px,2.2vw,25px); line-height:1.5; color:#242827">Latest news and opening updates<br>are available on Instagram.</p>
+            <sc-if value="{{ja}}" hint-placeholder-val="{{ true }}"><p lang="ja" style="margin:16px 0 0; font-family:'Noto Sans JP',sans-serif; font-size:14px; line-height:2.05; color:#4C504E">お知らせの掲載準備中です。<br>最新の営業情報・入荷情報はInstagramでご覧いただけます。</p></sc-if>
+            <a href="{{igUrl}}" target="_blank" rel="noopener noreferrer" aria-label="{{igAria}}" style="display:inline-flex; align-items:center; gap:12px; margin-top:26px; background:#17363A; color:#F3EFE7; border:1px solid #17363A; border-radius:999px; padding:16px 32px; font-family:Manrope,sans-serif; font-size:12.5px; font-weight:800; letter-spacing:.15em; text-decoration:none; transition:background .25s ease" style-hover="background:#0E272B; color:#F3EFE7">CHECK INSTAGRAM<span aria-hidden="true" style="font-size:11px">↗</span></a>
+          </div>
+        </sc-if>
+      </div>
+    </section>
+
+  </main>
+  <dc-import name="SiteFooter" lang="{{lang}}" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    lang: (function () { try { return localStorage.getItem('hangout_lang') || 'ja'; } catch (e) { return 'ja'; } })(),
+    db: null,
+    cat: 'ALL',
+  };
+
+  componentDidMount() {
+    var self = this;
+    try {
+      var q = new URLSearchParams(location.search).get('lang');
+      if (q === 'ja' || q === 'en') { this.setLang(q); }
+    } catch (e) {}
+    import('./store.js').then(function (m) { self.setState({ db: m }); self._applyLang(self.state.lang, m); });
+    import('./fx.js').then(function (m) { self._fxOff = m.initFX(); });
+    this._applyLang(this.state.lang, null);
+  }
+
+  componentWillUnmount() { if (this._fxOff) this._fxOff(); }
+
+  _applyLang(l, dbMaybe) {
+    var db = dbMaybe || this.state.db;
+    try { document.documentElement.lang = l; } catch (e) {}
+    if (!db || !db.seo) return;
+    var apply = function () {
+      try {
+        document.title = l === 'ja' ? db.seo.whatson.tJa : db.seo.whatson.tEn;
+        var md = document.querySelector('meta[name="description"]');
+        if (md) md.setAttribute('content', l === 'ja' ? db.seo.whatson.dJa : db.seo.whatson.dEn);
+      } catch (e) {}
+    };
+    apply();
+    setTimeout(apply, 200);
+    setTimeout(apply, 700);
+  }
+
+  setLang = (l) => {
+    try { localStorage.setItem('hangout_lang', l); } catch (e) {}
+    this.setState({ lang: l });
+    this._applyLang(l, null);
+    try {
+      var u = new URL(location.href);
+      u.searchParams.set('lang', l);
+      history.replaceState(null, '', u);
+    } catch (e) {}
+  };
+
+  renderVals() {
+    var self = this;
+    var ja = this.state.lang === 'ja';
+    var db = this.state.db;
+    var s = db ? db.site : null;
+    var cat = this.state.cat;
+    var catNames = db ? db.newsCats : ['ALL', 'MENU', 'OPENING HOURS', 'BEER', 'EVENTS', 'OTHER'];
+    var cats = catNames.map(function (name) {
+      var on = cat === name;
+      return {
+        label: name,
+        bg: on ? '#17363A' : 'transparent',
+        col: on ? '#F3EFE7' : '#4C504E',
+        bc: on ? '#17363A' : '#C9C1AE',
+        pressed: on ? 'true' : 'false',
+        pick: function () { self.setState({ cat: name }); },
+      };
+    });
+    var all = db ? db.news : [];
+    var posts = all
+      .filter(function (p) { return cat === 'ALL' || p.cat === cat; })
+      .map(function (p) { return { date: p.date, cat: p.cat, title: ja ? p.titleJa : p.titleEn, body: ja ? p.bodyJa : p.bodyEn }; });
+    return {
+      lang: this.state.lang, ja: ja, en: !ja, setLang: this.setLang,
+      cats: cats,
+      posts: posts,
+      empty: !!db && posts.length === 0,
+      igUrl: s ? s.instagramUrl : 'https://www.instagram.com/hangout_coffee_/',
+      igAria: ja ? 'Instagram（新しいタブで開きます）' : 'Instagram (opens in a new tab)',
+    };
+  }
+}
+</script>
+</body>
+</html>
